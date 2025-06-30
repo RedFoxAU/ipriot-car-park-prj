@@ -1,3 +1,10 @@
+### This is a breif project description about a Carpark python monitoring program.
+
+
+
+
+
+
 # North Metro Software Python Project Template
 
 A Python project template for all new projects in North Metro Software
