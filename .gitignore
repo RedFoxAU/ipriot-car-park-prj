@@ -1,6 +1,10 @@
 .idea/
 .vscode
 *runner*
+gh.sh
+.github.env
+*.env
+.env
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
