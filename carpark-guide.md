@@ -322,15 +322,15 @@ We will focus on these key principles to guide the need for additional methods a
 >
 > If you choose to have only one-way associations, then your register method only needs to support a display.
 
-1. Create a `register` method for the `CarPark` class. This method should accept a single parameter, `component`. This parameter will be a `Sensor` (optional) or `Display` object.
-2. If the `component` is a `Sensor`, add it to the `sensors` (optional). If the `component` is a `Display`, add it to the `displays` list.
-3. If the `component` is neither a `Sensor` nor a `Display`, raise a `TypeError` with the message `"Object must be a Sensor or Display"`. Be sure to set an appropriate message for your implementation.
+1. Create a `register` method for the `CarPark` class. This method should accept a single parameter, `component`. This parameter will be a `Sensor` (optional) or `Display` object. ✅
+2. If the `component` is a `Sensor`, add it to the `sensors` (optional). If the `component` is a `Display`, add it to the `displays` list. ✅
+3. If the `component` is neither a `Sensor` nor a `Display`, raise a `TypeError` with the message `"Object must be a Sensor or Display"`. Be sure to set an appropriate message for your implementation. ✅
 
 **Stuck?**
 Here are some some hints to help you complete this task:
 
 Even though we often think of exceptions last, we generally want to put them first in our method definitions. This is because exceptions are, well, exceptional. We want to handle them first and then handle the normal flow of the method. This is called a **guard pattern** and is a common pattern in Python and other languages.
-Let's do that now. Add the following code to the top of the `register` method:
+Let's do that now. Add the following code to the top of the `register` method: ✅
 
    ```python
    # ... inside the CarPark class
@@ -339,7 +339,7 @@ Let's do that now. Add the following code to the top of the `register` method:
          raise TypeError("Object must be a Sensor or Display")
    ```
 
-The `isinstance` function checks if an object is an instance of a class. In this case, we check if the `component` is an instance of either the `Sensor` or `Display` class. Notice that we'll need to import the `Sensor` and `Display` classes to use them in the `isinstance` function. Add the following import statement to the top of the `car_park.py` file:
+The `isinstance` function checks if an object is an instance of a class. In this case, we check if the `component` is an instance of either the `Sensor` or `Display` class. Notice that we'll need to import the `Sensor` and `Display` classes to use them in the `isinstance` function. Add the following import statement to the top of the `car_park.py` file: ✅
 
    ```python
    from sensor import Sensor
@@ -352,16 +352,16 @@ Now, we can add the code to add the `component` to the appropriate list. Add the
    # ... inside the register method
    if isinstance(component, Sensor):
       self.sensors.append(component)
-   # TODO: (optional) add an elif to check if the component is a Display - MUST
+   # TODO: (optional) add an elif to check if the component is a Display - MUST ✅
    ```
 
 **Additional evidencing:**
-After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it:
+After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it: ✅ s5
 
    ```bash
    git add .
    git commit << appropriate commit message >>
-   git tag -a "s3" -m "Added a register method to the car park class"
+   git tag -a "s5" -m "Added a register method to the car park class"
    ```
 
 #### 2.7.2. Add and remove car methods
@@ -369,9 +369,9 @@ After you have implemented the required code, commit your changes to the local r
 When a car enters the car park, we record its plate number and update the displays. When a car exits the car park, we remove its plate number and update the displays. We can implement these behaviours in the `add_car` and `remove_car` methods.
 
 1. In the CarPark class, create an `add_car` method. This method should accept a single parameter, `plate`. This parameter will be a string containing the car's plate number.
-2. Append the `plate` to the `plates` list (`self.plates.append(plate)`).
+2. Append the `plate` to the `plates` list (`self.plates.append(plate)`). ✅
 3. Call the `update_displays` method.
-   Hang on, we haven't implemented the `update_displays` method yet. We'll do that next.
+   Hang on, we haven't implemented the `update_displays` method yet. We'll do that next. ✅
    Here is a sample implementation of the `add_car` method:
 
       ```python
@@ -381,7 +381,7 @@ When a car enters the car park, we record its plate number and update the displa
          self.update_displays()
       ```
 
-4. Repeat the previous steps to implement the `remove_car` method. This method also accepts a single parameter, `plate` and also calls `update_displays`. However, this method should remove the plate from `self.plates`.
+4. Repeat the previous steps to implement the `remove_car` method. This method also accepts a single parameter, `plate` and also calls `update_displays`. However, this method should remove the plate from `self.plates`. ✅
 
 #### 2.7.3. Update displays method
 
