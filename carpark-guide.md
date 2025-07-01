@@ -152,7 +152,7 @@ Include a screenshot of your GitHub repository `src/` directory **after** you ha
          ... # Return a string containing the car park's location and capacity
    ```
 
-7. Commit your changes to the repository locally and add a tag so your lecturer can find it. A tag is a way to mark a specific commit as important. You can use tags to mark milestones in your project, often marking releases. You will use it to mark specific commits for your lecturer to review.
+7. Commit your changes to the repository locally and add a tag so your lecturer can find it. A tag is a way to mark a specific commit as important. You can use tags to mark milestones in your project, often marking releases. You will use it to mark specific commits for your lecturer to review. ✅
 
    ```bash
    git add .
@@ -162,7 +162,7 @@ Include a screenshot of your GitHub repository `src/` directory **after** you ha
 
 #### 2.5.2. Display class
 
-1. Create an `__init__` method for the `Display` class. This method will be called when creating a new `Display` object. The method should accept the following parameters:
+1. Create an `__init__` method for the `Display` class. This method will be called when creating a new `Display` object. The method should accept the following parameters: ✅
    - `id`
    - `message`
    - `is_on`
@@ -173,17 +173,17 @@ Include a screenshot of your GitHub repository `src/` directory **after** you ha
 
 #### 2.5.3. Sensor class
 
-1. Create an `__init__` method for the `Sensor` class. This method will be called when a new `Sensor` object is created. The method should accept the following parameters:
+1. Create an `__init__` method for the `Sensor` class. This method will be called when a new `Sensor` object is created. The method should accept the following parameters: ✅
    - `id`
    - `is_active`
    - `car_park`
 
-  ⚠️⚠️⚠️ You realize that you need to distinguish between entry and exit sensors! Since each of those sensors will need different methods, you decide to subclass the `Sensor` class.
+  ⚠️⚠️⚠️ You realize that you need to distinguish between entry and exit sensors! Since each of those sensors will need different methods, you decide to subclass the `Sensor` class. ✅
 
 2. Create a new class called `EntrySensor` that inherits from `Sensor`. The `EntrySensor` class should **not** have an `__init__` method.
-Do the same for the `ExitSensor` class.
+Do the same for the `ExitSensor` class. ✅
 
-   Your `sensor.py` file should now look similar to this:
+   Your `sensor.py` file should now look similar to this: ✅
 
    ```python
    class Sensor:
@@ -201,15 +201,15 @@ Do the same for the `ExitSensor` class.
    # Also create an ExitSensor class
    ```
 
-3. Commit your changes to the local repository and add a tag so your lecturer can find it:
+3. Commit your changes to the local repository and add a tag so your lecturer can find it: ✅
 
    ```bash
    git add .
-   git commit <<appropriate commit message>>
-   git tag -a "s2" -m "Added constructors and attributes to the display and sensor classes"
+   git commit -m "feat(core): add methods for CarPark, Sensor and Display"
+   git tag -a "s4" -m "Added constructors and attributes to the display and sensor classes"
    ```
 
-4. Now push your **tagged** changes to the remote repository:
+4. Now push your **tagged** changes to the remote repository: ✅
 
    ```bash
    git push --tags
@@ -220,8 +220,10 @@ Do the same for the `ExitSensor` class.
 You realize that you need a way to configure the car park system. You decide to create a `Config` class to store the configuration data. However, you want to have a firmer grasp of the requirements before you implement the class. So you skip this step for now.
 
 --------
-**Additional evidencing:**
+**Additional evidencing:** ✅
 Ensure that you have completed the previous steps and created the appropriate tags. Confirm that the tags have been created by running `git tag` in the terminal and provide a screenshot of the output.
+
+![Git Tags](screenshots/git-tags.png)
 
 ```bash
 [student@workstation ipriot-car-park-prj]$ git tag
@@ -231,7 +233,7 @@ s2
 
 ### 2.6. Relate the classes
 
-Let's consider how the classes relate to each other. We can start by using a sequence diagram to illustrate class interactions. A sequence diagram shows the interactions between objects in a sequential order. The following diagram shows the interactions between the `CarPark`, `Sensor`, and `Display` classes.
+Let's consider how the classes relate to each other. We can start by using a sequence diagram to illustrate class interactions. A sequence diagram shows the interactions between objects in a sequential order. The following diagram shows the interactions between the `CarPark`, `Sensor`, and `Display` classes. ✅
 
 ```mermaid
 sequenceDiagram
@@ -251,7 +253,7 @@ sequenceDiagram
     c->>d: update_displays() ...
 ```
 
-Notice a sensor detects cars and notifies a car park. The car park then updates the displays. Sensors connect **to** a car park, and a car park connects **to** its displays.
+Notice a sensor detects cars and notifies a car park. The car park then updates the displays. Sensors connect **to** a car park, and a car park connects **to** its displays. ✅
 
 In other words, a sensor needs to know about a car park, and a car park needs to hold displays. This is an example of aggregation, where one object holds a reference to another object. In this case, the `CarPark` class holds a reference to instances of the `Display` classes (aggregation) and has some ownership over them; sensors while technically holding a reference to car park do so primarily to notify (update) the car park but conceptually they don't "posses" a car park, so association may be more suitable than aggregation to represent this relationship (art not science).
 
@@ -291,7 +293,7 @@ classDiagram
       }
 ```
 
-The diagram omits methods and attributes irrelevant to the relationship between the classes. Notice that the `CarPark` class has a `register` method that allows it to register the displays (you can also set it up to register sensors, but this is no longer required).
+The diagram omits methods and attributes irrelevant to the relationship between the classes. Notice that the `CarPark` class has a `register` method that allows it to register the displays (you can also set it up to register sensors, but this is no longer required). ✅
 
 ### 2.7. Implement methods for the CarPark class
 
