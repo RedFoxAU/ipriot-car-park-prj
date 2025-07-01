@@ -5,7 +5,6 @@ from display import Display
 from pathlib import Path
 from datetime import datetime
 
-
 class CarPark:
     def __init__(self, location, capacity, plates=None, sensors=None, displays=None, log_file=Path("log.txt")):
         self.location = location
@@ -75,3 +74,4 @@ class CarPark:
         with config_file.open() as f:
             config = json.load(f)
         return cls(config["location"], config["capacity"], log_file=config["log_file"])
+        
