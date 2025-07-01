@@ -87,13 +87,14 @@ git push -u origin feature/mvp
 
 ### 2.3. Identify classes, methods, and attributes
 
-After reading the task requirements, you should be able to identify the classes, methods, and attributes required for the car park system. Complete the following table with the classes, methods, and attributes you must implement.
+After reading the task requirements, you should be able to identify the classes, methods, and attributes required for the car park system. Complete the following table with the classes, methods, and attributes you must implement. ✅
 
-| Class Name | Attributes | Methods |
-| ---------- | ---------- | ------- |
-| `CarPark`    |            |         |
-| `Sensor`     |            |         |
-| `Display`    |            |         |
+| Class Name | Attributes                                                                 | Methods                                                                                      |
+|------------|----------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| `CarPark`  | `name`, `capacity`, `available_bays`, `sensors`, `displays`, `license_plates`, `weather` | `car_entered()`, `car_exited()`, `update_weather()`, `get_availability()`                    |
+| `Sensor`   | `sensor_id`, `bay_id`, `occupied`                                          | `detect_car_entry()`, `detect_car_exit()`, `is_occupied()`                                  |
+| `Display`  | `display_id`, `location`, `message`, `temperature`                         | `update_availability()`, `update_message()`, `update_temperature()`                         |
+
 
 **Additional evidencing:**
 Ensure you have completed the previous table and include at least two methods and attributes for each.
