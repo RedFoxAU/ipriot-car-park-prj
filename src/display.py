@@ -14,8 +14,16 @@ class Display:
         self.is_on = True
 
     def update(self, data):
+        if "message" in data:
+            self.update_message(data["message"])
+
         for key, value in data.items():
-         print(f"{key}: {value}")
+            print(f"{key}: {value}")
+
+
+
+
+
         # if self.is_on:
         #     print(f"Display {self.id}: {self.message}")
         # else:
