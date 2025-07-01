@@ -8,7 +8,13 @@ class Display:
         return f"Display {self.id}: {self.message}"
 
     def update_message(self, message):
-        pass
+        self.message = message
 
     def turn_on(self):
-        pass
+        self.is_on = True
+
+    def update(self):
+        if self.is_on:
+            print(f"Display {self.id}: {self.message}")
+        else:
+            print(f"Display {self.id} is off.")

@@ -13,3 +13,22 @@ class CarPark:
 
     def car_exited(self, license_plate):
         print(f"Car exited with plate: {license_plate}")
+
+    def register(self, obj):
+        if isinstance(obj, Display):
+            self.displays.append(obj)
+        # If you want to register sensors, add here too (optional)
+
+    def add_car(self, plate):
+        if plate not in self.plates:
+            self.plates.append(plate)
+            self.update_displays()
+
+    def remove_car(self, plate):
+        if plate in self.plates:
+            self.plates.remove(plate)
+            self.update_displays()
+
+    def update_displays(self):
+        for display in self.displays:
+            display.update()
