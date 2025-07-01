@@ -295,18 +295,18 @@ classDiagram
 
 The diagram omits methods and attributes irrelevant to the relationship between the classes. Notice that the `CarPark` class has a `register` method that allows it to register the displays (you can also set it up to register sensors, but this is no longer required). ✅
 
-### 2.7. Implement methods for the CarPark class
+### 2.7. Implement methods for the CarPark class ✅
 
 Our analysis shows that the car park will need to implement the following methods:
 
-- `register`: This method will allow the car park to register sensors and displays.
-- `add_car`: This method will be called when a car enters the car park. It will record the plate number and update the displays.
-- `remove_car`: This method will be called when a car exits the car park. It will remove the plate number and update the displays.
-- `update_displays`: This method will be called when the car park needs to update the displays. It will iterate through the displays and call their `update` method.
+- `register`: This method will allow the car park to register sensors and displays. ✅
+- `add_car`: This method will be called when a car enters the car park. It will record the plate number and update the displays. ✅
+- `remove_car`: This method will be called when a car exits the car park. It will remove the plate number and update the displays. ✅
+- `update_displays`: This method will be called when the car park needs to update the displays. It will iterate through the displays and call their `update` method. ✅
 
-As we implement these methods, we may need additional methods and attributes. For example, we may need a method to check if a plate number is already in the car park. We may also need an attribute to store the plate numbers. We can add these as we go.
+As we implement these methods, we may need additional methods and attributes. For example, we may need a method to check if a plate number is already in the car park. We may also need an attribute to store the plate numbers. We can add these as we go. ✅
 
-We will focus on these key principles to guide the need for additional methods and attributes:
+We will focus on these key principles to guide the need for additional methods and attributes: ✅
 
 - **Encapsulation**: We want to hide the class's implementation details from other classes. We can do this by making attributes private and only exposing them through methods.
 - **Single Responsibility**: We want each method to have a single responsibility. This will make the code easier to understand and maintain.
@@ -346,13 +346,13 @@ The `isinstance` function checks if an object is an instance of a class. In this
    from display import Display
    ```
 
-Now, we can add the code to add the `component` to the appropriate list. Add the following code to the `register` method:
+Now, we can add the code to add the `component` to the appropriate list. Add the following code to the `register` method: ✅
 
    ```python
    # ... inside the register method
    if isinstance(component, Sensor):
       self.sensors.append(component)
-   # TODO: (optional) add an elif to check if the component is a Display - MUST ✅
+   # TODO: (optional) add an elif to check if the component is a Display - MUST 
    ```
 
 **Additional evidencing:**
@@ -389,17 +389,19 @@ Finally, we are going to create the `update_displays` method. This method will i
 
 For example, you may want to see the number of available bays, the current temperature, and the time.
 
-Now consider, between the `CarPark`, `Sensor`, and `Display` classes, which class is responsible for each piece of information? There's no right or wrong answer here. But you should be able to justify your answer.
+Now consider, between the `CarPark`, `Sensor`, and `Display` classes, which class is responsible for each piece of information? There's no right or wrong answer here. But you should be able to justify your answer. ✅
 
 >Q. Which class is responsible for the number of available bays (and why)?
->
+> CarPark it tracks the plates with functions add_car, remove_car, register, car_entered and car_exited.
+
 >Q. Which class is responsible for the current temperature (and why)?
->
+> Sensor. Because sensors sense things, such as a tempreature.
+
 >Q. Which class is responsible for the time (and why)?
->
+> Display as it displays the time.
 --------
 
-##### 2.7.3.1. Detour: implement available bays
+##### 2.7.3.1. Detour: implement available bays ✅
 
 You realize that you need to maintain the number of available bays. The number of available bays is a curious case. On the one hand, this value is an attribute of the car park. However, it is also a **property** of the car park's capacity and the number of cars in the car park. In other words, it is a **derived** value. We can calculate the number of available bays by subtracting the number of cars from the capacity. We can do this in the `CarPark` class by adding a `get_available_bays` method. This method will return the number of available bays.
 
