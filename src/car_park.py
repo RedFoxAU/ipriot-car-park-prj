@@ -1,9 +1,12 @@
+from sensor import Sensor
+from display import Display
 class CarPark:
-    def __init__(self, location="Unknown", capacity=0, plates=None, displays=None):
+    def __init__(self, location, capacity, plates=None, displays=None, sensors=None):
         self.location = location
         self.capacity = capacity
         self.plates = plates or []
         self.displays = displays or []
+        self.sensors = sensors or []
 
     def __str__(self):
         return f"Car park at {self.location}, with {self.capacity} bays."
@@ -17,7 +20,6 @@ class CarPark:
     def register(self, obj):
         if isinstance(obj, Display):
             self.displays.append(obj)
-        # If you want to register sensors, add here too (optional)
 
     def add_car(self, plate):
         if plate not in self.plates:
@@ -32,3 +34,24 @@ class CarPark:
     def update_displays(self):
         for display in self.displays:
             display.update()
+
+    def register(self, component):
+        if not isinstance(component, (Sensor, Display)):
+            raise TypeError("Object must be a Sensor or Display")
+
+#            # ... inside the register method
+#    if isinstance(component, Sensor):
+#       self.sensors.append(component)
+
+#    # TODO: (optional) add an elif to check if the component is a Display - MUST
+
+        if isinstance(component, Sensor):
+            self.sensors.append(component)
+
+        elif isinstance(component, Display):
+            self.displays.append(component)
+
+#    # ... inside the CarPark class
+#    def register(self, component):
+#       if not isinstance(component, (Sensor, Display)):
+#          raise TypeError("Object must be a Sensor or Display")
