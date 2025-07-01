@@ -73,7 +73,7 @@ Notes on using this guide:
 **Additional evidencing:**
 Include a screenshot of your GitHub repository **after** you have pushed your initial commit.
 
-[Initial commit](screenshots/image-of-github-after-push.png)
+![Initial commit](screenshots/image-of-github-after-push.png)
 
 
 ### 2.2. Create a branch for your work
