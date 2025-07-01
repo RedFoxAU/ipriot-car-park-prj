@@ -2,7 +2,7 @@
 
 ---
 <details open>
-<summary> # 🚗 Car Park Management System </summary>
+<summary> 🚗 Car Park Management System </summary>
 
 This project simulates a smart car park system using object-oriented design principles. 
 It supports managing vehicle entry and exit, logging events, displaying availability, and saving/loading configuration using JSON.
