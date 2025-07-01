@@ -11,7 +11,7 @@ It supports managing vehicle entry and exit, logging events, displaying availabi
 
 ---
 <details open>
-<summary> #📁 Overview </summary>
+<summary> 📁 Overview </summary>
 
 This system is developed in Python and models a real-world car park with the following features:
 
@@ -26,7 +26,7 @@ This system is developed in Python and models a real-world car park with the fol
 
 ---
 <details open>
-<summary> #✅ Features </summary>
+<summary> ✅ Features </summary>
 
 - `CarPark` class manages all vehicles and components
 - `Sensor` classes trigger vehicle entry and exit
@@ -38,7 +38,7 @@ This system is developed in Python and models a real-world car park with the fol
 
 ---
 <details open>
-<summary> #🧪 Testing  </summary>
+<summary> 🧪 Testing  </summary>
 
   Run tests with:
 
