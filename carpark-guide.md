@@ -398,7 +398,7 @@ Now consider, between the `CarPark`, `Sensor`, and `Display` classes, which clas
 > Sensor. Because sensors sense things, such as a tempreature.
 
 >Q. Which class is responsible for the time (and why)?
-> Display as it displays the time.
+> Display as it displays -  when a time is set up it can use self.message
 --------
 
 ##### 2.7.3.1. Detour: implement available bays ✅
@@ -407,7 +407,7 @@ You realize that you need to maintain the number of available bays. The number o
 
 But you're uncomfortable with this because even though you derive the value through a calculation, it still seems conceptually like an attribute. Python has a built-in way of treating a simple method that represents a property of an object as an attribute. We can use it to protect values and make attributes derived via simple calculations easier to access. Fittingly, it is called a **property**. We can create a property by adding a `@property` decorator (we'll learn more about decorators in the diploma) to a method. While decorators can have a wide range of uses, there are only a few you need to use right now, and you just have to remember what they do rather than how they do it. A `property` decorator will make a method behave like an attribute (i.e. we access it rather than call it).
 
-Let's add `available_bays` as a property now:
+Let's add `available_bays` as a property now: ✅
 
 ```python
       # ... inside the CarPark class
@@ -418,7 +418,7 @@ Let's add `available_bays` as a property now:
 
 Notice that we did **not** use a verb in a property name. This is because, again, properties are accessed like attributes. For example, `car_park.available_bays` instead of `car_park.get_available_bays()`.
 
-A bonus is that if someone accidentally tries to set the value to this property, they will get an error. This is because we have not defined a property setter, which is good in this case.
+A bonus is that if someone accidentally tries to set the value to this property, they will get an error. This is because we have not defined a property setter, which is good in this case. 
 
 Without a property, python would not raise an error if someone "outside" the class created (or clobbered) an `available_bays` attribute by just assigning a value to it at runtime!
 
@@ -434,11 +434,11 @@ But what should our car park do when this happens? Do we want to allow the numbe
 
 You discussed with the senior developer and decided that if the number of plates exceeds the capacity, you will return 0.
 
-> Modify the `available_bays` property to return 0 if the number of plates exceeds the capacity (hint: the `max` function allows you to solve this very elegantly).
+> Modify the `available_bays` property to return 0 if the number of plates exceeds the capacity (hint: the `max` function allows you to solve this very elegantly). ✅
 
 ***
 
-#### 2.7.4. Back to the update displays method
+#### 2.7.4. Back to the update displays method ✅
 
 The `update_displays` method shall send status information: available bays, temperature, and other relevant information to each display. We will implement this method in the `CarPark` class.
 
