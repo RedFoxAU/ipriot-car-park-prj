@@ -23,14 +23,14 @@ Notes on using this guide:
 
 ### 2.1. Set up version control
 
-1. Create a new repository on GitHub by selecting **Use this template** under the [NMS Org Template](https://github.com/NM-TAFE/ipriot-nms-org-template/tree/main)
+1. Create a new repository on GitHub by selecting **Use this template** under the [NMS Org Template](https://github.com/NM-TAFE/ipriot-nms-org-template/tree/main) ✅
 
-> Recommended repo name: `ipriot-car-park-prj`
+> Recommended repo name: `ipriot-car-park-prj` 
 
-2. Clone the repository to your local machine.
-3. Update the `README.md` file with a brief project description.
-4. Modify the `.gitignore` file to exclude the `.idea/` folder. PyCharm creates this folder containing project-specific settings that generally should not be shared.
-5. Create a virtual environment for your project. This will allow you to install packages without affecting other projects on your machine.
+2. Clone the repository to your local machine. ✅
+3. Update the `README.md` file with a brief project description. 🚧
+4. Modify the `.gitignore` file to exclude the `.idea/` folder. PyCharm creates this folder containing project-specific settings that generally should not be shared.✅
+5. Create a virtual environment for your project. This will allow you to install packages without affecting other projects on your machine. ✅
 
    ```bash
    python -m venv .venv
@@ -45,8 +45,8 @@ Notes on using this guide:
    source .venv/bin/activate
    ```
 
-6. Open the project folder in PyCharm. PyCharm will detect the virtual environment and use it for the project.
-7. Create a `src` and `tests` directories in your project. The `src` directory will contain your Python scripts, and the `tests` directory will contain your unit tests. Your project structure should look like this:
+6. Open the project folder in PyCharm. PyCharm will detect the virtual environment and use it for the project. ✅
+7. Create a `src` and `tests` directories in your project. The `src` directory will contain your Python scripts, and the `tests` directory will contain your unit tests. Your project structure should look like this: ✅
 
    ```bash
    ipriot-car-park-prj/  # >> This is your project root folder
@@ -59,10 +59,10 @@ Notes on using this guide:
    └── tests/
    ```
 
-9. Create a new Python file in the `src` directory called `main.py`. This will be the main script for your car park system.
-10. Create a new Python file in the `tests` directory called `test_car_park.py`. This will be the main script for your unit tests.
-11. In PyCharm, mark the `src` directory as a source root. This will allow you to import modules from the `src` directory in your unit tests; mark the `tests` directory as a test root. This will enable you to run your unit tests from the IDE, without having to mess around with relative imports (long story!).
-12. Commit your changes to the repository, both locally and remotely:
+9. Create a new Python file in the `src` directory called `main.py`. This will be the main script for your car park system. ✅
+10. Create a new Python file in the `tests` directory called `test_car_park.py`. This will be the main script for your unit tests. ✅
+11. In PyCharm, mark the `src` directory as a source root. This will allow you to import modules from the `src` directory in your unit tests; mark the `tests` directory as a test root. This will enable you to run your unit tests from the IDE, without having to mess around with relative imports (long story!). 📌
+12. Commit your changes to the repository, both locally and remotely: ✅
 
       ```bash
       git add .
@@ -71,14 +71,14 @@ Notes on using this guide:
       ```
 
 **Additional evidencing:**
-Include a screenshot of your GitHub repository **after** you have pushed your initial commit.
+Include a screenshot of your GitHub repository **after** you have pushed your initial commit.✅
 
 ![Initial commit](screenshots/image-of-github-after-push.png)
 
 
 ### 2.2. Create a branch for your work
 
-Create a new branch for your work. This will allow you to create a PR for the "MVP". You can refer to the work as `feature/` with `mvp` or `basic-car-park-system` as possible branch names. Don't forget to also set up a remote tracking branch so you can push your changes to GitHub.
+Create a new branch for your work. This will allow you to create a PR for the "MVP". You can refer to the work as `feature/` with `mvp` or `basic-car-park-system` as possible branch names. Don't forget to also set up a remote tracking branch so you can push your changes to GitHub. ✅
 
 ```bash
 git switch -c feature/mvp
