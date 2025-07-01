@@ -798,7 +798,7 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
 ![Unit tests](screenshots/unit-tests-display.png)
 
 2. Commit your changes to the local repository. Tag the commit with `s7` so your lecturer can find it. ✅ s9
-3. Push the tag to the remote repository.
+3. Push the tag to the remote repository. ✅
 
    ```bash
    git push --tags
@@ -812,11 +812,11 @@ Finally, we'll create tests for the `Sensor` class. These tests will test the `_
 
 ### 2.12. Test the car park register method
 
-The car park register method should accept a `Sensor` (optional) or `Display` object. It should raise a `TypeError` if the object is neither a `Sensor` nor a `Display`. Before proceeding, think about where you would test this behaviour. Should you test it in the `CarPark` unit tests or the `Display`/`Sensor` unit tests? Why?
+The car park register method should accept a `Sensor` (optional) or `Display` object. It should raise a `TypeError` if the object is neither a `Sensor` nor a `Display`. Before proceeding, think about where you would test this behaviour. Should you test it in the `CarPark` unit tests or the `Display`/`Sensor` unit tests? Why? ✅
 
-> Answer here...
+> Carpark as that validates/errors. Display and Sensor do as they are told.
 
-Create a new unit test in the `test_car_park.py` file called `test_register_raises_type_error`. This test should create a `CarPark` object and a `str` object. It should then call the `register` method on the `CarPark` object with the `str` object as a parameter. The test should assert that a `TypeError` is raised. Here is a sample implementation:
+Create a new unit test in the `test_car_park.py` file called `test_register_raises_type_error`. This test should create a `CarPark` object and a `str` object. It should then call the `register` method on the `CarPark` object with the `str` object as a parameter. The test should assert that a `TypeError` is raised. Here is a sample implementation: ✅
 
 ```python
 # ... inside the TestCarPark class
@@ -826,13 +826,13 @@ with self.assertRaises(TypeError):
 
 **Additional evidencing:**
 
-Commit your original test cases for the sensor class to the local repository. Tag the commit with `s8` so your lecturer can find it.
+Commit your original test cases for the sensor class to the local repository. Tag the commit with `s8` so your lecturer can find it. ✅ s10
 
 ### 2.13. Additional functionality: TDD
 
 You have been asked to implement the following additional functionality:
 
-- Log cars entering and leaving in a file called `log.txt`.
+- Log cars entering and leaving in a file called `log.txt`. 
 - Store the configuration of a car park in a file called `config.json`.
 
 You decide to use TDD to implement this functionality. You start by writing a unit test for each requirement. You then implement the functionality to make the unit tests pass. Because you've already developed and tested much of the core functionality, you also decide to create a branch for this work.
@@ -841,13 +841,13 @@ Working in a branch allows you to work on the new functionality without affectin
 
 #### 2.13.1. Create a branch
 
-Create a new local branch named `feature/log-car-activity`. You can do this either using `git checkout` or the more modern `git switch` command:
+Create a new local branch named `feature/log-car-activity`. You can do this either using `git checkout` or the more modern `git switch` command: ✅
 
    ```bash
    git switch -c feature/log-car-activity
    ```
 
-   This command creates a new branch **and** switches to it. Notice that the branch name is prefixed with `feature/` and uses `kebab-case`. This is a common convention for branch naming. Further, notice that we avoid the temptation to combine unrelated functionality in a single branch. This is a common mistake that can lead to problems later on.
+   This command creates a new branch **and** switches to it. Notice that the branch name is prefixed with `feature/` and uses `kebab-case`. This is a common convention for branch naming. Further, notice that we avoid the temptation to combine unrelated functionality in a single branch. This is a common mistake that can lead to problems later on. ✅
 
 #### 2.13.2. Log cars entering and leaving in a file called `log.txt`
 
@@ -858,13 +858,13 @@ Typically, we import the `Path` class from the `pathlib` module. We can then use
 
 ##### 2.13.2.1. Add test cases: (optional but recommended)
 
-1. In your `test_car_park.py` file, add the following import statement to the top of the file:
+1. In your `test_car_park.py` file, add the following import statement to the top of the file: ✅
 
    ```python
    from pathlib import Path
    ```
 
-2. Update `test_car_park_initialized_with_all_attributes` to assert (1) that a new optional parameter (2) `log_file` and a new instance variable `log_file` is added. The `log_file` should default to Path(`log.txt`). Here is a sample implementation:
+2. Update `test_car_park_initialized_with_all_attributes` to assert (1) that a new optional parameter (2) `log_file` and a new instance variable `log_file` is added. The `log_file` should default to Path(`log.txt`). Here is a sample implementation: ✅
 
    ```python
    # ... inside the TestCarPark class
@@ -873,7 +873,7 @@ Typically, we import the `Path` class from the `pathlib` module. We can then use
       self.assertEqual(self.car_park.log_file, Path("log.txt"))
    ```
 
-3. Create a new unit test in the `test_car_park.py` file called `test_log_file_created`. This test should create a `CarPark` object and assert that a `log.txt` file is created when a car enters or exits the car park. Here is a sample implementation:
+3. Create a new unit test in the `test_car_park.py` file called `test_log_file_created`. This test should create a `CarPark` object and assert that a `log.txt` file is created when a car enters or exits the car park. Here is a sample implementation: ✅
 
    ```python
 
@@ -883,9 +883,9 @@ Typically, we import the `Path` class from the `pathlib` module. We can then use
          self.assertTrue(Path("new_log.txt").exists())
    ```
 
-When a test creates a file, it is **not** cleaned up automatically. So, we want to ensure that the file is deleted with a `tearDown` method.
+When a test creates a file, it is **not** cleaned up automatically. So, we want to ensure that the file is deleted with a `tearDown` method. ✅
 
-4. Add the following code to the `TestCarPark` class:
+4. Add the following code to the `TestCarPark` class: ✅
 
    ```python
    # ... inside the TestCarPark class
@@ -902,7 +902,7 @@ Unlink? What does that mean? It turns out that when you delete files on most ope
 
 Notice how we have inadvertently made our test code hard to maintain (if we change the log file's name, we have to change it in two places). Can you think of a way to improve this code? Hint: consider using a class attribute or new instance variable in the `setUp` method.
 
-5. Finally, there are two more test cases we are going to add. Since you have worked so hard, you can copy/paste this code:
+5. Finally, there are two more test cases we are going to add. Since you have worked so hard, you can copy/paste this code: ✅
 
    ```python
    # inside the TestCarPark class
