@@ -37,22 +37,11 @@ class CarPark:
             self.plates.remove(plate)
             self.update_displays()
 
-    # def update_displays(self):
-    #     for display in self.displays:
-    #         display.update()
-
     def update_displays(self):
         data = {"available_bays": self.available_bays, "temperature": 25}
 
         for display in self.displays:
-            display.update(data)  # <-- pass 'data' to the update method
-
-
-
-
-    # @property
-    # def available_bays(self):
-    #     return self.capacity - len(self.plates)
+            display.update(data)
 
     @property
     def available_bays(self):
