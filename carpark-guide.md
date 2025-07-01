@@ -854,7 +854,7 @@ Create a new local branch named `feature/log-car-activity`. You can do this eith
 **Detour – Python file handling:**
 Python is a multi-platform language. This means that it can run on different operating systems. However, different operating systems have different ways of representing files and paths. We, therefore, want to *abstract* this representation away from our code. We can do this using the `pathlib` module. This module provides a platform-independent way to represent files and paths. We can use it to create a `Path` object representing a file or directory. We can then use this object to create, read, write, and delete files and directories.
 
-Typically, we import the `Path` class from the `pathlib` module. We can then use the `Path` class to create a `Path` object. For example, `Path("log.txt")` creates a `Path` object that represents a file called `log.txt`. We can then use the `Path` object to create, read, write, and delete files and directories.
+Typically, we import the `Path` class from the `pathlib` module. We can then use the `Path` class to create a `Path` object. For example, `Path("log.txt")` creates a `Path` object that represents a file called `log.txt`. We can then use the `Path` object to create, read, write, and delete files and directories. ✅
 
 ##### 2.13.2.1. Add test cases: (optional but recommended)
 
@@ -896,7 +896,7 @@ When a test creates a file, it is **not** cleaned up automatically. So, we want 
 ---
 
 :bulb:
-Unlink? What does that mean? It turns out that when you delete files on most operating systems, you unlink the file from a directory entry. The data is still there but can now be overwritten. When we program, we often use the more precise and explicit terms.
+Unlink? What does that mean? It turns out that when you delete files on most operating systems, you unlink the file from a directory entry. The data is still there but can now be overwritten. When we program, we often use the more precise and explicit terms.  ✅
 
 ---
 
@@ -928,7 +928,7 @@ Notice how we have inadvertently made our test code hard to maintain (if we chan
 
 6. Run the unit tests in PyCharm. Confirm that they fail!
 
-7. Commit your changes to the local repository. You do not need to tag them:
+7. Commit your changes to the local repository. You do not need to tag them: ✅
 
       ```bash
       git add .
@@ -939,14 +939,14 @@ Notice how we have inadvertently made our test code hard to maintain (if we chan
 
 Let's now implement the functionality to make the unit tests pass (if you have written them):
 
-1. Open the `car_park.py` file and add the following import statement to the top of the file:
+1. Open the `car_park.py` file and add the following import statement to the top of the file:  ✅
 
    ```python
    from pathlib import Path
    from datetime import datetime # we'll use this to timestamp entries
    ```
 
-2. Update the `__init__` method to accept an optional `log_file` parameter. This parameter should default to `Path("log.txt")`. Here is a sample implementation:
+2. Update the `__init__` method to accept an optional `log_file` parameter. This parameter should default to `Path("log.txt")`. Here is a sample implementation: ✅
 
    ```python
    # in CarPark class
@@ -957,8 +957,8 @@ Let's now implement the functionality to make the unit tests pass (if you have w
       self.log_file.touch(exist_ok=True)
    ```
 
-3. If you have written the unit tests, run them in PyCharm. Confirm that your initialization tests now pass.
-4. Create a private method to log car activity. This method should accept the `plate` and `action` parameters. It should open the `log_file` in append mode and write the plate, action ('entered' or 'exited') and a timestamp to the file. Here is a sample implementation:
+3. If you have written the unit tests, run them in PyCharm. Confirm that your initialization tests now pass.✅
+4. Create a private method to log car activity. This method should accept the `plate` and `action` parameters. It should open the `log_file` in append mode and write the plate, action ('entered' or 'exited') and a timestamp to the file. Here is a sample implementation: ✅
 
    ```python
    # in CarPark class
@@ -967,7 +967,7 @@ Let's now implement the functionality to make the unit tests pass (if you have w
          f.write(f"{plate} {action} at {datetime.now():%Y-%m-%d %H:%M:%S}\n")
    ```
 
-5. Call the `_log_car_activity` method in the `add_car` **and** `remove_car` methods. Here is a sample implementation for the `add_car` method:
+5. Call the `_log_car_activity` method in the `add_car` **and** `remove_car` methods. Here is a sample implementation for the `add_car` method: ✅
 
    ```python
    # in CarPark class
@@ -977,25 +977,25 @@ Let's now implement the functionality to make the unit tests pass (if you have w
       self._log_car_activity(plate, "entered")
    ```
 
-6. If you have created the unit tests, run them in PyCharm. Confirm that they now pass.
+6. If you have created the unit tests, run them in PyCharm. Confirm that they now pass. ✅
 
 **Additional evidencing:**
 
 1. Add and commit your changes to the branch
-2. Now we are going to merge the branch back into the main branch. First, switch to the main branch:
+2. Now we are going to merge the branch back into the main branch. First, switch to the main branch: ✅
 
    ```bash
    git switch main
    ```
 
-3. Merge the branch into the main branch and then tag the commit with `s9` so your lecturer can find it:
+3. Merge the branch into the main branch and then tag the commit with `s9` so your lecturer can find it:  ✅ s11
 
    ```bash
    git merge feature/log-car-activity
    git tag -a "s9" -m "Added logging functionality"
    ```
 
-4. Push the main branch to the remote repository.
+4. Push the main branch to the remote repository. ✅
 
    ```python
    # in CarPark class
