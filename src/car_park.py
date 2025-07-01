@@ -34,8 +34,9 @@ class CarPark:
 
     def remove_car(self, plate):
         if plate in self.plates:
-            self.plates.remove(plate)
-            self.update_displays()
+            raise ValueError(f"Plate {plate} not found in car park")
+        self.plates.remove(plate)
+        self.update_displays()
 
     def update_displays(self):
         data = {"available_bays": self.available_bays, "temperature": 25}
