@@ -1,11 +1,17 @@
 # 1-SPACELEFT-CARPARKS PRESENTS :
 
-# 🚗 Car Park Management System
+---
+<details open>
+<summary> # 🚗 Car Park Management System </summary>
 
 This project simulates a smart car park system using object-oriented design principles. 
 It supports managing vehicle entry and exit, logging events, displaying availability, and saving/loading configuration using JSON.
 
-## 📁 Overview
+</details>
+
+---
+<details open>
+<summary> # 📁 Overview </summary>
 
 This system is developed in Python and models a real-world car park with the following features:
 
@@ -16,8 +22,11 @@ This system is developed in Python and models a real-world car park with the fol
 - Sensor-triggered entry/exit
 - Fully test-driven development (TDD) workflow
 
+</details>
 
-## ✅ Features
+---
+<details open>
+<summary> # ✅ Features </summary>
 
 - `CarPark` class manages all vehicles and components
 - `Sensor` classes trigger vehicle entry and exit
@@ -25,11 +34,13 @@ This system is developed in Python and models a real-world car park with the fol
 - Configurable via `config.json` file
 - Logs activity with timestamps using `log.txt`
 
+</details>
 
-## 🧪 Testing
+---
+<details open>
+<summary> # 🧪 Testing  </summary>
 
-
-Run tests with:
+  Run tests with:
 
 ```bash
 python -m unittest discover tests
@@ -39,6 +50,9 @@ python -m unittest discover tests
 python src/main.py
 ```
 
+</details>
+
+---
 
 
 
@@ -52,19 +66,17 @@ python src/main.py
 
 
 
-### This is a breif project description about a Carpark python monitoring program.
 
 
 
 
 
 
-# North Metro Software Python Project Template
 
-A Python project template for all new projects in North Metro Software
 
-You may use the guidelines under `org/` for assessments and projects in the IP4RIoT cluster.
-
+---
+<details>
+<summary>📁 Notes</summary>
 ## Additional Examples
 Here are other good examples of onboarding documents that relate to git and version control for you to browse:
 
@@ -72,5 +84,4 @@ Here are other good examples of onboarding documents that relate to git and vers
 - [thoughtbot](https://github.com/thoughtbot/guides/tree/main/git) (also see their excellent [code review](https://github.com/thoughtbot/guides/tree/main/code-review) guide!)
 - [GitLab Handbook](https://handbook.gitlab.com/handbook/product-development-flow/)
 
-# Note
-When using this repo as a template, you should update this readme to provide a general overview suitable for **YOUR** project.
+</details>
