@@ -55,3 +55,17 @@ class CarPark:
 #    def register(self, component):
 #       if not isinstance(component, (Sensor, Display)):
 #          raise TypeError("Object must be a Sensor or Display")
+
+def update(self):
+    self.message = f"{self.id}: {len(self.car_park.plates)} cars in the car park."
+
+    #   # ... inside the CarPark class
+    #   @property
+    #   def available_bays(self):
+    #      return self.capacity - len(self.plates)
+
+    @property
+    def available_bays(self):
+        return self.capacity - len(self.plates)
+        print(car_park.available_bays)
+
