@@ -1,7 +1,6 @@
 import unittest
 from car_park import CarPark
 from pathlib import Path
-from datetime import datetime
 
 class TestCarPark(unittest.TestCase):
     def setUp(self):
