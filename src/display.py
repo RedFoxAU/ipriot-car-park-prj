@@ -6,3 +6,9 @@ class Display:
 
     def __str__(self):
         return f"Display {self.id}: {self.message}"
+
+    def update_message(self, message):
+        pass
+
+    def turn_on(self):
+        pass
