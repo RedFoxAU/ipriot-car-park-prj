@@ -794,8 +794,8 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
    ```markdown
    ![Unit tests](screenshots/unit-tests-display.png)
    ```
-![Unit tests](screenshots/unit-tests-display-error.png   
-![Unit tests](screenshots/unit-tests-display.png
+![Unit tests](screenshots/unit-tests-display-error.png)   
+![Unit tests](screenshots/unit-tests-display.png)
 
 2. Commit your changes to the local repository. Tag the commit with `s7` so your lecturer can find it.
 3. Push the tag to the remote repository.
