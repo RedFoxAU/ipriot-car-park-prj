@@ -474,31 +474,32 @@ Add a screenshot of the GitHub repository after pushing the tag, showing the Car
 ```markdown
 ![Added methods to the car park class](screenshots/methods-to-car-park.png)
 ```
+![Added methods to the car park class](screenshots/methods-to-car-park.png)
 
-Answer the following questions:
+Answer the following questions: ✅
 > **Review Questions**
 >
 > 1. **Which class is responsible for each of the following pieces of information (and why)?**
 >    - *The number of available bays*
->      `Answer here...`
+>      `CarPark - this class manages the total capacity and tracks licences plates that come in, and takes them off as they leave. this allows for available_bays to be accurate`
 >    - *The current temperature*
->      `Answer here...`
+>      `Sensor. Sensor senses things like tempreature, so it can be displayed in display or sent to other components.`
 >    - *The time*
->      `Answer here...`
+>      `Display. Display is showing the time and providing this value if needed`
 >
 > 2. **What is the difference between an attribute and a property?**
->    `Answer here...`
+>    `Attribute is a variable stored in an object like self.plates and a property is an attribute that has @property such as available_bays. Properties 'hide' the logic keep the code cleaner`
 >
-> 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.**
->    `Answer here...`
+> 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.** 
+>    `Dictionary allows us to change, add, remove without changing the method.`
 
 #### 2.7.5. Add a detect vehicle method to the Sensor class
 
-A sensor detects a vehicle, scans the plate, and notifies the car park. The Sensor class is specialized by the EntrySensor and ExitSensor classes. We will implement the `detect_vehicle` method in the `EntrySensor` and `ExitSensor` classes.
+A sensor detects a vehicle, scans the plate, and notifies the car park. The Sensor class is specialized by the EntrySensor and ExitSensor classes. We will implement the `detect_vehicle` method in the `EntrySensor` and `ExitSensor` classes. ✅
 
-The Sensor superclass is abstract, meaning we don't expect it to be instantiated. However, we can still implement methods in the superclass. We will implement the `detect_vehicle` method in the `Sensor` class. The `detect_vehicle` method will be called when a vehicle is detected. It will scan the plate and call the `update_car-park` method.
+The Sensor superclass is abstract, meaning we don't expect it to be instantiated. However, we can still implement methods in the superclass. We will implement the `detect_vehicle` method in the `Sensor` class. The `detect_vehicle` method will be called when a vehicle is detected. It will scan the plate and call the `update_car-park` method. ✅
 
-The `update_car_park` method should be implemented in the `EntrySensor` and `ExitSensor` classes. This method will be called by the `detect_vehicle` method. Since the implementation will be determined by the subclass, this is an example of polymorphism.
+The `update_car_park` method should be implemented in the `EntrySensor` and `ExitSensor` classes. This method will be called by the `detect_vehicle` method. Since the implementation will be determined by the subclass, this is an example of polymorphism. ✅
 
 ```mermaid
 classDiagram
@@ -518,14 +519,14 @@ classDiagram
     Sensor <|.. ExitSensor
 ```
 
-1. Open `sensor.py`, and add the following import statement to the top of the file:
+1. Open `sensor.py`, and add the following import statement to the top of the file: ✅
 
    ```python
    from abc import ABC, abstractmethod
    ```
 
-2. Update the class declaration to inherit from ABC: `class Sensor(ABC):`.
-3. Add an `update_car_park` method to the `Sensor` class. This method should accept a single parameter, `plate`. This method should be abstract, meaning it should not be implemented in the superclass and must be implemented by a subclass. We can do this by adding the `@abstractmethod` decorator to the method. Here is a sample implementation:
+2. Update the class declaration to inherit from ABC: `class Sensor(ABC):`. ✅
+3. Add an `update_car_park` method to the `Sensor` class. This method should accept a single parameter, `plate`. This method should be abstract, meaning it should not be implemented in the superclass and must be implemented by a subclass. We can do this by adding the `@abstractmethod` decorator to the method. Here is a sample implementation: ✅
 
    ```python
    # ... inside the Sensor class
@@ -534,19 +535,19 @@ classDiagram
       pass
    ```
 
-4. Create a private method called `scan_plate`. The method should return a plate. For now, we will simply return a random plate. Here is a sample implementation:
+4. Create a private method called `scan_plate`. The method should return a plate. For now, we will simply return a random plate. Here is a sample implementation:  ✅
 
    ```python
    # ... inside the Sensor class
    def _scan_plate(self):
       return 'FAKE-' + format(random.randint(0, 999), "03d")
    ```
-
-5. Create a `detect_vehicle` method **in the Sensor class**. The method includes the following steps:
-   - Call the `_scan_plate` method to get the plate.
-   - Call the `update_car_park` method with the plate.
+ 
+5. Create a `detect_vehicle` method **in the Sensor class**. The method includes the following steps: ✅
+   - Call the `_scan_plate` method to get the plate. ✅
+   - Call the `update_car_park` method with the plate. ✅
    Notice that the `update_car_park` method is abstract. It is **not** implemented in the `Sensor` class. This is because the implementation will be determined by the subclass.
-   Here is a proposed implementation:
+   Here is a proposed implementation: ✅
 
    ```python
       # ... inside the Sensor class
@@ -555,7 +556,7 @@ classDiagram
       self.update_car_park(plate)
    ```
 
-6. Now, let's implement update_car_park in the EntrySensor class. This method should accept a single parameter, `plate`. Here is a sample implementation:
+6. Now, let's implement update_car_park in the EntrySensor class. This method should accept a single parameter, `plate`. Here is a sample implementation: ✅
 
    ```python
    # ... inside the EntrySensor class
@@ -564,7 +565,7 @@ classDiagram
       print(f"Incoming 🚘 vehicle detected. Plate: {plate}")
    ```
 
-7. Let's do the same for the ExitSensor:
+7. Let's do the same for the ExitSensor: ✅
 
    ```python
    # ... inside the ExitSensor class
@@ -575,7 +576,7 @@ classDiagram
 
 Normally, we'd be done. But the astute among you may have identified a problem: we can generate a random license plate for cars entering, but not cars that are exiting. Remember this is not a real-world problem, just a problem caused by us not having a "real" plate sensor.
 
-So just for this simulation, we will override the _scan_plate method to return a plate at random from the car park. This is a bit of a hack, but it will work for our purposes.
+So just for this simulation, we will override the _scan_plate method to return a plate at random from the car park. This is a bit of a hack, but it will work for our purposes. ✅
 
 ```python
 # ... inside the ExitSensor class
@@ -583,8 +584,8 @@ def _scan_plate(self):
    return random.choice(self.car_park.plates)
 ```
 
-**Additional evidencing:**
-After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it:
+**Additional evidencing:** 
+After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it: ✅ s
 
    ```bash
    git add .
