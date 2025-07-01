@@ -3,6 +3,7 @@
 *runner*
 gh.sh
 .github.env
+.venv2/
 *.env
 .env
 tempCodeRunnerFile.py
