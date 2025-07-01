@@ -445,7 +445,7 @@ The `update_displays` method shall send status information: available bays, temp
 1. Create an `update_displays` method in the `CarPark` class. This method only needs to accept the `self` parameter.
 2. Build a dictionary containing the information you want to send to the displays. For example, `data = {"available_bays": self.available_bays, "temperature": 25}`.
 3. Iterate through the `displays` list and call the `update` method on each display. For example, `for display in self.displays: display.update(data)`.
-4. Create an `update` method for the `Display` class. This method should accept a single parameter, `data`. For now, we will print the keys and values. Here is a sample implementation:
+4. Create an `update` method for the `Display` class. This method should accept a single parameter, `data`. For now, we will print the keys and values. Here is a sample implementation: ✅
 
    ```python
    # ... inside the Display class
@@ -455,21 +455,21 @@ The `update_displays` method shall send status information: available bays, temp
    ```
 
 **Additional evidencing:**
-After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it:
+After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it: ✅ s6
 
    ```bash
    git add .
    git commit  << appropriate commit message >>
-   git tag -a "s4" -m "Added methods to the car park class"
+   git tag -a "s6" -m "Added methods to the car park class"
    ```
 
-This time, we will push the tag to the remote repository:
+This time, we will push the tag to the remote repository: ✅
 
    ```bash
    git push --tags
    ```
 
-Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:
+Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods: ✅
 
 ```markdown
 ![Added methods to the car park class](screenshots/methods-to-car-park.png)
