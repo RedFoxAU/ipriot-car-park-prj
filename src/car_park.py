@@ -1,5 +1,6 @@
 from sensor import Sensor
 from display import Display
+
 class CarPark:
     def __init__(self, location, capacity, plates=None, displays=None, sensors=None):
         self.location = location
@@ -17,9 +18,14 @@ class CarPark:
     def car_exited(self, license_plate):
         print(f"Car exited with plate: {license_plate}")
 
-    def register(self, obj):
-        if isinstance(obj, Display):
-            self.displays.append(obj)
+    def register(self, component):
+        if not isinstance(component, (Sensor, Display)):
+            raise TypeError("Object must be a Sensor or Display")
+
+        if isinstance(component, Sensor):
+            self.sensors.append(component)
+        elif isinstance(component, Display):
+            self.displays.append(component)
 
     def add_car(self, plate):
         if plate not in self.plates:
@@ -35,37 +41,10 @@ class CarPark:
         for display in self.displays:
             display.update()
 
-    def register(self, component):
-        if not isinstance(component, (Sensor, Display)):
-            raise TypeError("Object must be a Sensor or Display")
-
-#            # ... inside the register method
-#    if isinstance(component, Sensor):
-#       self.sensors.append(component)
-
-#    # TODO: (optional) add an elif to check if the component is a Display - MUST
-
-        if isinstance(component, Sensor):
-            self.sensors.append(component)
-
-        elif isinstance(component, Display):
-            self.displays.append(component)
-
-#    # ... inside the CarPark class
-#    def register(self, component):
-#       if not isinstance(component, (Sensor, Display)):
-#          raise TypeError("Object must be a Sensor or Display")
-
-def update(self):
-    self.message = f"{self.id}: {len(self.car_park.plates)} cars in the car park."
-
-    #   # ... inside the CarPark class
-    #   @property
-    #   def available_bays(self):
-    #      return self.capacity - len(self.plates)
+    # @property
+    # def available_bays(self):
+    #     return self.capacity - len(self.plates)
 
     @property
     def available_bays(self):
-        return self.capacity - len(self.plates)
-        print(car_park.available_bays)
-
+        return max(0, self.capacity - len(self.plates))
