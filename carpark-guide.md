@@ -76,7 +76,7 @@ Include a screenshot of your GitHub repository **after** you have pushed your in
 ![Initial commit](screenshots/image-of-github-after-push.png)
 
 
-### 2.2. Create a branch for your work
+### 2.2. Create a branch for your work ✅
 
 Create a new branch for your work. This will allow you to create a PR for the "MVP". You can refer to the work as `feature/` with `mvp` or `basic-car-park-system` as possible branch names. Don't forget to also set up a remote tracking branch so you can push your changes to GitHub. ✅
 
@@ -85,24 +85,25 @@ git switch -c feature/mvp
 git push -u origin feature/mvp
 ```
 
-### 2.3. Identify classes, methods, and attributes
+### 2.3. Identify classes, methods, and attributes ✅
 
-After reading the task requirements, you should be able to identify the classes, methods, and attributes required for the car park system. Complete the following table with the classes, methods, and attributes you must implement.
+After reading the task requirements, you should be able to identify the classes, methods, and attributes required for the car park system. Complete the following table with the classes, methods, and attributes you must implement. ✅
 
-| Class Name | Attributes | Methods |
-| ---------- | ---------- | ------- |
-| `CarPark`    |            |         |
-| `Sensor`     |            |         |
-| `Display`    |            |         |
+| Class Name | Attributes                                                                 | Methods                                                                                      |
+|------------|----------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| `CarPark`  | `name`, `capacity`, `available_bays`, `sensors`, `displays`, `license_plates`, `weather` | `car_entered()`, `car_exited()`, `update_weather()`, `get_availability()`                    |
+| `Sensor`   | `sensor_id`, `bay_id`, `occupied`                                          | `detect_car_entry()`, `detect_car_exit()`, `is_occupied()`                                  |
+| `Display`  | `display_id`, `location`, `message`, `temperature`                         | `update_availability()`, `update_message()`, `update_temperature()`                         |
+
 
 **Additional evidencing:**
-Ensure you have completed the previous table and include at least two methods and attributes for each.
+Ensure you have completed the previous table and include at least two methods and attributes for each. ✅
 
 ### 2.4. Implement stubs for the classes
 
-1. In your `src/` directory, create a new Python file for each class you identified in the previous step. For example, `car_park.py`, `sensor.py`, and `display.py`.
-   Notice that the file names are all lowercase and use underscores to separate words. This is a common convention for Python file names. In general, Python files are named like variables, using lowercase and underscores to separate words.
-2. In *each* file, create a class with the same name as the file. For example, the `car_park.py` file should contain a `CarPark` class. Notice that the class name is capitalized and uses PascalCase to separate words. This is a common convention for Python class names. An example class definition is shown below:
+1. In your `src/` directory, create a new Python file for each class you identified in the previous step. For example, `car_park.py`, `sensor.py`, and `display.py`. ✅
+   Notice that the file names are all lowercase and use underscores to separate words. This is a common convention for Python file names. In general, Python files are named like variables, using lowercase and underscores to separate words. ✅
+2. In *each* file, create a class with the same name as the file. For example, the `car_park.py` file should contain a `CarPark` class. Notice that the class name is capitalized and uses PascalCase to separate words. This is a common convention for Python class names. An example class definition is shown below: ✅
 
    ```python
    class CarPark:
@@ -110,7 +111,7 @@ Ensure you have completed the previous table and include at least two methods an
    # do this for ALL the other classes!
    ```
 
-3. Commit your changes to the repository, both locally and remotely:
+3. Commit your changes to the repository, both locally and remotely: ✅
 
       ```bash
       git add .
@@ -119,7 +120,7 @@ Ensure you have completed the previous table and include at least two methods an
       ```
 
 **Additional evidencing:**
-Include a screenshot of your GitHub repository `src/` directory **after** you have pushed your changes.
+Include a screenshot of your GitHub repository `src/` directory **after** you have pushed your changes. ✅
 
 ```markdown
 ![Added stubs for classes](screenshots/stubs-for-classes.png)
@@ -127,19 +128,19 @@ Include a screenshot of your GitHub repository `src/` directory **after** you ha
 
 ### 2.5. Add constructors and attributes to the classes
 
-#### 2.5.1. CarPark class
+#### 2.5.1. CarPark class ✅
 
-1. Create an `__init__` method for the `CarPark` class. This method will be called when a new `CarPark` object is created. The method should accept the following parameters:
-   - `location`
-   - `capacity`
-   - `plates`
-   - `displays`
-2. Add instance variables for each of the parameters. For example, `self.location = location`.
+1. Create an `__init__` method for the `CarPark` class. This method will be called when a new `CarPark` object is created. The method should accept the following parameters: ✅
+   - `location` ✅
+   - `capacity` ✅
+   - `plates` ✅
+   - `displays` ✅
+2. Add instance variables for each of the parameters. For example, `self.location = location`. ✅
 3. Consider if default values are appropriate for any of the parameters. For example, would you have a default `location = "Unknown"`? (You decide!)
 4. Notice that plates and displays are lists (and we usually just use plurals to indicate this). The `displays` attribute holds references to instances of displays. The `plates` attribute holds references to license plates represented as strings (built-in/primitive types). Specifying these at initialization is optional, but we don't want to use an empty list as the default. For example, `self.sensors = []`. Lists are **mutable**, and we must never set mutable defaults for parameters. Thus we make the defaults `None`.
 5. Add a `__str__` method to the `CarPark` class. When you print a `CarPark` object, this method will be called. The method should return a string containing the car park's location and capacity. For example, `"Car park at 123 Example Street, with 100 bays."`.
-6. Your car park class should now look similar to this:
-
+6. Your car park class should now look similar to this: ✅
+ 
    ```python
    class CarPark:
       def __init__(self, location, capacity, plates=None, displays=None):
