@@ -585,12 +585,12 @@ def _scan_plate(self):
 ```
 
 **Additional evidencing:** 
-After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it: ✅ s
+After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it: ✅ s7
 
    ```bash
    git add .
    git commit << appropriate commit message >>
-   git tag -a "s5" -m "Core methods completed"
+   git tag -a "s7" -m "Core methods completed"
    ```
 
 Probably a good idea to commit to GitHub now:
@@ -657,15 +657,15 @@ classDiagram
 
 ```
 
-Take a moment to review the diagram and ensure you have implemented the classes, methods, and attributes correctly. You're about to find out if you haven't!
+Take a moment to review the diagram and ensure you have implemented the classes, methods, and attributes correctly. You're about to find out if you haven't!  ✅
 
 ### 2.9. Implement unit tests
 
-The first set of unit tests are given to you below. We use the unittest module to create unit tests. The unittest module provides a base class, TestCase, which we can use to create test cases. We can then use the assert methods to test the behaviour of our classes.
+The first set of unit tests are given to you below. We use the unittest module to create unit tests. The unittest module provides a base class, TestCase, which we can use to create test cases. We can then use the assert methods to test the behaviour of our classes. ✅
 
 #### 2.9.1. CarPark unit tests
 
-The following unit tests test the `CarPark` class. They test the `__init__` method, the `add_car` method, and the `remove_car` method. Notice that we use the `setUp` method to create a `CarPark` object before each test. This ensures that each test starts with a fresh `CarPark` object.
+The following unit tests test the `CarPark` class. They test the `__init__` method, the `add_car` method, and the `remove_car` method. Notice that we use the `setUp` method to create a `CarPark` object before each test. This ensures that each test starts with a fresh `CarPark` object. ✅
 
 ```python
 import unittest
@@ -716,27 +716,29 @@ if __name__ == "__main__":
 
 ```
 
-1. Create or open the Python file in the `tests` directory called `test_car_park.py` and paste the contents of the previous unit test into it.
-2. Commit your changes to the local repository. Do not tag the commit. It is an interim commit.
+1. Create or open the Python file in the `tests` directory called `test_car_park.py` and paste the contents of the previous unit test into it. ✅
+2. Commit your changes to the local repository. Do not tag the commit. It is an interim commit. ✅
 
    ```bash
    git add .
    git commit -m "Added unit tests for the car park class"
    ```
 
-3. Run the above unit tests in PyCharm.
-4. Fix any errors you encounter.
+3. Run the above unit tests in PyCharm. ✅
+4. Fix any errors you encounter. ✅
 
 **Additional evidencing:**
 
-1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
+1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors: ✅
 
    ```markdown
    ![Unit tests](screenshots/unit-tests.png)
    ```
+   ![Unit tests](screenshots/unit-tests.png)
 
-2. Commit your changes to the local repository. Tag the commit with `s6` so your lecturer can find it:
-3. Push the tag to the remote repository:
+   
+3. Commit your changes to the local repository. Tag the commit with `s6` so your lecturer can find it: ✅ s8
+4. Push the tag to the remote repository:
 
    ```bash
    git push --tags
@@ -744,10 +746,10 @@ if __name__ == "__main__":
 
 ### 2.10. Display unit tests
 
-Next, we'll create tests for the `Display` class. These tests will test the `__init__` method and the `update` method.
+Next, we'll create tests for the `Display` class. These tests will test the `__init__` method and the `update` method. ✅
 
 1. In the tests/ directory, create a new Python file called `test_display.py`. Notice that tests are usually suffixed or prefixed with `test`. Typically, a unit applies to a class. So the unit tests for the `Display` class are in the `test_display.py` file.
-2. Add the following import statement to the top of the file:
+2. Add the following import statement to the top of the file: ✅
 
    ```python
    import unittest
@@ -755,14 +757,14 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
    from car_park import CarPark
    ```
 
-3. Create a `TestDisplay` class that inherits from `unittest.TestCase`.
+3. Create a `TestDisplay` class that inherits from `unittest.TestCase`. ✅
 4. Create a `setUp` method that creates a `Display` object and a `CarPark` object. The `Display` object should have the following attributes:
    - `id`: 1
    - `message`: "Welcome to the car park"
    - `is_on`: True
    - `car_park`: CarPark(...)
 
-5. Create a `test_display_initialized_with_all_attributes` method. This method should test that the `Display` object was initialized with the correct attributes. Here is a sample implementation:
+5. Create a `test_display_initialized_with_all_attributes` method. This method should test that the `Display` object was initialized with the correct attributes. Here is a sample implementation: ✅
 
    ```python
    # ... inside the TestDisplay class
@@ -773,7 +775,7 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
       self.assertEqual(self.display.is_on, True)
    ```
 
-6. Now create a `test_update` method. This method should test that the `update` method updates the `message` attribute. Here is a sample implementation:
+6. Now create a `test_update` method. This method should test that the `update` method updates the `message` attribute. Here is a sample implementation: ✅
 
    ```python
    # ... inside the TestDisplay class
@@ -787,11 +789,13 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
 
 **Additional evidencing:**
 
-1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
+1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors: ✅
 
    ```markdown
    ![Unit tests](screenshots/unit-tests-display.png)
    ```
+![Unit tests](screenshots/unit-tests-display-error.png   
+![Unit tests](screenshots/unit-tests-display.png
 
 2. Commit your changes to the local repository. Tag the commit with `s7` so your lecturer can find it.
 3. Push the tag to the remote repository.
