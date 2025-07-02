@@ -1,22 +1,28 @@
+import json
 from sensor import Sensor
 from display import Display
+from pathlib import Path
+from datetime import datetime
 
 class CarPark:
-    def __init__(self, location, capacity, plates=None, displays=None, sensors=None):
-        self.location = location
+    def __init__(self, name, capacity, plates=None, sensors=None, displays=None, log_file=Path("log.txt"), weather=None):
+        self.name = name
         self.capacity = capacity
-        self.plates = plates or []
-        self.displays = displays or []
+        self.available_bays = available_bays
         self.sensors = sensors or []
+        self.displays = displays or []
+        self.plates = plates or []
+        self.weather = weather or []
+        self.location = location or []
 
     def __str__(self):
-        return f"Car park at {self.location}, with {self.capacity} bays."
+        return f"Car park at {self.name}, with {self.capacity} bays."
 
-    def car_entered(self, license_plate):
-        print(f"Car entered with plate: {license_plate}")
+    def car_entered(self, plates):
+        print(f"Car entered with plate: {plates} \nAvailable bays: {self.available_bays}")
 
-    def car_exited(self, license_plate):
-        print(f"Car exited with plate: {license_plate}")
+    def car_exited(self, plates):
+        print(f"Car exited with plate: {plates}")
 
     def register(self, component):
         if not isinstance(component, (Sensor, Display)):
