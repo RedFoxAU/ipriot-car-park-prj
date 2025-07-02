@@ -988,12 +988,13 @@ Let's now implement the functionality to make the unit tests pass (if you have w
    git switch main
    ```
 
-3. Merge the branch into the main branch and then tag the commit with `s9` so your lecturer can find it:  ✅ s11
+3. Merge the branch into the main branch and then tag the commit with `s9` so your lecturer can find it:  ✅ s13
 
    ```bash
    git merge feature/log-car-activity
-   git tag -a "s9" -m "Added logging functionality"
+   git tag -a "s13" -m "Added logging functionality"  # (default s9, was s11, now s13)
    ```
+
 
 4. Push the main branch to the remote repository. ✅
 
@@ -1083,7 +1084,7 @@ In your final submission, you must include any files you created or modified. Th
    from display import Display
    ```
 
-3. Now complete all the TODO steps outlined below:
+3. Now complete all the TODO steps outlined below: ✅
 
    ```python
    # TODO: create a car park object with the location moondalup, capacity 100, and log_file "moondalup.txt"
