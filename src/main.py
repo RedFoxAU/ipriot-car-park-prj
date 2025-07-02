@@ -32,8 +32,8 @@ def main():
         entry_sensor.detect_vehicle(plate)
 
     # TODO: drive 2 cars out of the car park (must be triggered via the sensor - NOT by calling car_park.remove_car directly)
-    entry_sensor.detect_vehicle("FAKE-1")
-    entry_sensor.detect_vehicle("FAKE-2")
+    exit_sensor.detect_vehicle("FAKE-1")
+    exit_sensor.detect_vehicle("FAKE-2")
 
 
 
