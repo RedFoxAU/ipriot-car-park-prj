@@ -442,9 +442,9 @@ You discussed with the senior developer and decided that if the number of plates
 
 The `update_displays` method shall send status information: available bays, temperature, and other relevant information to each display. We will implement this method in the `CarPark` class.
 
-1. Create an `update_displays` method in the `CarPark` class. This method only needs to accept the `self` parameter.
-2. Build a dictionary containing the information you want to send to the displays. For example, `data = {"available_bays": self.available_bays, "temperature": 25}`.
-3. Iterate through the `displays` list and call the `update` method on each display. For example, `for display in self.displays: display.update(data)`.
+1. Create an `update_displays` method in the `CarPark` class. This method only needs to accept the `self` parameter. ✅
+2. Build a dictionary containing the information you want to send to the displays. For example, `data = {"available_bays": self.available_bays, "temperature": 25}`. ✅
+3. Iterate through the `displays` list and call the `update` method on each display. For example, `✅`.
 4. Create an `update` method for the `Display` class. This method should accept a single parameter, `data`. For now, we will print the keys and values. Here is a sample implementation: ✅
 
    ```python
@@ -482,8 +482,10 @@ Answer the following questions: ✅
 > 1. **Which class is responsible for each of the following pieces of information (and why)?**
 >    - *The number of available bays*
 >      `CarPark - this class manages the total capacity and tracks licences plates that come in, and takes them off as they leave. this allows for available_bays to be accurate`
+>    
 >    - *The current temperature*
 >      `Sensor. Sensor senses things like tempreature, so it can be displayed in display or sent to other components.`
+>      
 >    - *The time*
 >      `Display. Display is showing the time and providing this value if needed`
 >
@@ -988,12 +990,13 @@ Let's now implement the functionality to make the unit tests pass (if you have w
    git switch main
    ```
 
-3. Merge the branch into the main branch and then tag the commit with `s9` so your lecturer can find it:  ✅ s11
+3. Merge the branch into the main branch and then tag the commit with `s9` so your lecturer can find it:  ✅ s13
 
    ```bash
    git merge feature/log-car-activity
-   git tag -a "s9" -m "Added logging functionality"
+   git tag -a "s13" -m "Added logging functionality"  # (default s9, was s11, now s13)
    ```
+
 
 4. Push the main branch to the remote repository. ✅
 
@@ -1083,7 +1086,7 @@ In your final submission, you must include any files you created or modified. Th
    from display import Display
    ```
 
-3. Now complete all the TODO steps outlined below:
+3. Now complete all the TODO steps outlined below: ✅
 
    ```python
    # TODO: create a car park object with the location moondalup, capacity 100, and log_file "moondalup.txt"
