@@ -72,7 +72,6 @@ class CarPark:
 
     def _log_car_activity(self, plate, action):
         with self.log_file.open("a") as f:
-<<<<<<< HEAD
            f.write(f"{plate} {action} at {datetime.now():%Y-%m-%d %H:%M:%S}\n")
 
     def write_config(self):
@@ -88,6 +87,4 @@ class CarPark:
             config = json.load(f)
         return cls(config["location"], config["capacity"], log_file=config["log_file"])
 
-=======
-            f.write(f"{plate} {action} at {datetime.now():%Y-%m-%d %H:%M:%S}\n")
->>>>>>> feature/log-car-activity
+       #     f.write(f"{plate} {action} at {datetime.now():%Y-%m-%d %H:%M:%S}\n")
