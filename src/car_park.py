@@ -13,8 +13,13 @@ class CarPark:
         self.displays = displays or []
         self.sensors = sensors or []
         self.log_file = log_file if isinstance(log_file, Path) else Path(log_file)
-        #  create the file if it doesn't exist:
+        # create the file if it doesn't exist:
         self.log_file.touch(exist_ok=True)
+
+        # if not isinstance(capacity, int) or capacity <= 0:
+        #     raise ValueError("Capacity must be a positive integer")
+        # if not isinstance(location, str):
+        #     raise TypeError("Location must be a string")
 
     def __str__(self):
         return f"Car park at {self.location}, with {self.capacity} bays."
@@ -45,7 +50,7 @@ class CarPark:
             self.update_displays()
             self._log_car_activity(plate, "entered")
         else:
-            raise ValueError(f"Plate {plate} invalid entry.")
+            raise ValueError(f"Plate {plate} error on entry.")
 
     def remove_car(self, plate):
         if plate in self.plates:
@@ -67,6 +72,7 @@ class CarPark:
 
     def _log_car_activity(self, plate, action):
         with self.log_file.open("a") as f:
+<<<<<<< HEAD
            f.write(f"{plate} {action} at {datetime.now():%Y-%m-%d %H:%M:%S}\n")
 
     def write_config(self):
@@ -82,3 +88,6 @@ class CarPark:
             config = json.load(f)
         return cls(config["location"], config["capacity"], log_file=config["log_file"])
 
+=======
+            f.write(f"{plate} {action} at {datetime.now():%Y-%m-%d %H:%M:%S}\n")
+>>>>>>> feature/log-car-activity
