@@ -34,11 +34,18 @@ class CarPark:
         elif isinstance(component, Display):
             self.displays.append(component)
 
+    # def add_car(self, plate):
+        # if plate not in self.plates:
+        #     self.plates.append(plate)
+        #     self.update_displays()
+        #     self._log_car_activity(plate, "entered")
     def add_car(self, plate):
         if plate not in self.plates:
             self.plates.append(plate)
             self.update_displays()
             self._log_car_activity(plate, "entered")
+        else:
+            raise ValueError(f"Plate {plate} invalid entry.")
 
     def remove_car(self, plate):
         if plate in self.plates:
@@ -59,8 +66,8 @@ class CarPark:
         return max(0, self.capacity - len(self.plates))
 
     def _log_car_activity(self, plate, action):
-      with self.log_file.open("a") as f:
-         f.write(f"{plate} {action} at {datetime.now()}\n")
+        with self.log_file.open("a") as f:
+           f.write(f"{plate} {action} at {datetime.now():%Y-%m-%d %H:%M:%S}\n")
 
     def write_config(self):
         with open("config.json", "w") as f: # TODO: use self.config_file; use Path; add optional parm to __init__
@@ -74,4 +81,4 @@ class CarPark:
         with config_file.open() as f:
             config = json.load(f)
         return cls(config["location"], config["capacity"], log_file=config["log_file"])
-        
+
