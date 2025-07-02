@@ -60,11 +60,15 @@ class CarPark:
         else:
             raise ValueError(f"Plate {plate} not found in car park.")
 
+
+
     def update_displays(self):
         data = {"available_bays": self.available_bays, "temperature": 25}
 
         for display in self.displays:
             display.update(data)
+
+
 
     @property
     def available_bays(self):
@@ -88,3 +92,6 @@ class CarPark:
         return cls(config["location"], config["capacity"], log_file=config["log_file"])
 
        #     f.write(f"{plate} {action} at {datetime.now():%Y-%m-%d %H:%M:%S}\n")
+    def update(self, data):
+        for key, value in data.items():
+            print(f"{key}: {value}")
