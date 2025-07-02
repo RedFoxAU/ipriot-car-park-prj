@@ -75,5 +75,14 @@ class TestCarPark(unittest.TestCase):
         self.assertIn("exited", last_line)
         self.assertIn("\n", last_line)
 
+    def test_write_and_load_config(self):
+        self.car_park.write_config("test_config.json")
+        loaded = CarPark.from_config("test_config.json")
+        self.assertEqual(loaded.location, self.car_park.location)
+        self.assertEqual(loaded.capacity, self.car_park.capacity)
+        self.assertEqual(str(loaded.log_file), str(self.car_park.log_file))
+        Path("test_config.json").unlink(missing_ok=True)
+
+
 if __name__ == "__main__":
     unittest.main()
