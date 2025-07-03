@@ -442,9 +442,9 @@ You discussed with the senior developer and decided that if the number of plates
 
 The `update_displays` method shall send status information: available bays, temperature, and other relevant information to each display. We will implement this method in the `CarPark` class.
 
-1. Create an `update_displays` method in the `CarPark` class. This method only needs to accept the `self` parameter.
-2. Build a dictionary containing the information you want to send to the displays. For example, `data = {"available_bays": self.available_bays, "temperature": 25}`.
-3. Iterate through the `displays` list and call the `update` method on each display. For example, `for display in self.displays: display.update(data)`.
+1. Create an `update_displays` method in the `CarPark` class. This method only needs to accept the `self` parameter. ✅
+2. Build a dictionary containing the information you want to send to the displays. For example, `data = {"available_bays": self.available_bays, "temperature": 25}`. ✅
+3. Iterate through the `displays` list and call the `update` method on each display. For example, `✅`.
 4. Create an `update` method for the `Display` class. This method should accept a single parameter, `data`. For now, we will print the keys and values. Here is a sample implementation: ✅
 
    ```python
@@ -482,8 +482,10 @@ Answer the following questions: ✅
 > 1. **Which class is responsible for each of the following pieces of information (and why)?**
 >    - *The number of available bays*
 >      `CarPark - this class manages the total capacity and tracks licences plates that come in, and takes them off as they leave. this allows for available_bays to be accurate`
+>    
 >    - *The current temperature*
 >      `Sensor. Sensor senses things like tempreature, so it can be displayed in display or sent to other components.`
+>      
 >    - *The time*
 >      `Display. Display is showing the time and providing this value if needed`
 >
@@ -988,12 +990,13 @@ Let's now implement the functionality to make the unit tests pass (if you have w
    git switch main
    ```
 
-3. Merge the branch into the main branch and then tag the commit with `s9` so your lecturer can find it:  ✅ s11
+3. Merge the branch into the main branch and then tag the commit with `s9` so your lecturer can find it:  ✅ s13
 
    ```bash
    git merge feature/log-car-activity
-   git tag -a "s9" -m "Added logging functionality"
+   git tag -a "s13" -m "Added logging functionality"  # (default s9, was s11, now s13)
    ```
+
 
 4. Push the main branch to the remote repository. ✅
 
@@ -1006,9 +1009,9 @@ Let's now implement the functionality to make the unit tests pass (if you have w
 
 #### 2.13.3. Store the configuration of a car park in a file called `config.json`
 
-**Detour – JSON:** [JavaScript Object Notation (JSON)](https://www.json.org/json-en.html) is a standard format for storing data. It is a text-based format that is easy for humans to read and write. It is also easy for computers to parse and generate. JSON is often used for storing configuration data (though `yaml` and `toml` are increasingly popular). It is also a standard format for exchanging data between applications. Like most high-level languages, Python has built-in support for JSON.
+**Detour – JSON:** [JavaScript Object Notation (JSON)](https://www.json.org/json-en.html) is a standard format for storing data. It is a text-based format that is easy for humans to read and write. It is also easy for computers to parse and generate. JSON is often used for storing configuration data (though `yaml` and `toml` are increasingly popular). It is also a standard format for exchanging data between applications. Like most high-level languages, Python has built-in support for JSON. ✅
 
-Now that you're becoming familiar with the process. Try and do the following:
+Now that you're becoming familiar with the process. Try and do the following: ✅
 
 1. (Optional) Create a new branch called `feature/store-config-in-json`
 2. (Optional) Create a new unit test to test that a CarPark can be initialized with a `config_file` parameter.
@@ -1024,13 +1027,13 @@ We are going to do the latter:
    git rm src/config.py
    ```
 
-2. Open the `car_park.py` file and add the following import statement to the top of the file:
+2. Open the `car_park.py` file and add the following import statement to the top of the file: ✅
 
    ```python
    import json
    ```
 
-3. Implement a `write_config` method in the CarPark class. This method should write the location, log_file, and capacity to a file called `config.json`. Here is a sample implementation:
+3. Implement a `write_config` method in the CarPark class. This method should write the location, log_file, and capacity to a file called `config.json`. Here is a sample implementation: ✅
 
    ```python
    # ... inside the CarPark class
@@ -1041,8 +1044,8 @@ We are going to do the latter:
                     "log_file": str(self.log_file)}, f)
    ```
 
-   Because JSON is dictionary-like (key-value pairs), we can use a dictionary to represent the configuration. We can then use the `json.dump` method to write the dictionary to a file.
-
+   Because JSON is dictionary-like (key-value pairs), we can use a dictionary to represent the configuration. We can then use the `json.dump` method to write the dictionary to a file. ✅
+ 
 4. Implement a `from_config` method in the CarPark class. This method should accept a single parameter, `config_file`. This parameter should default to `Path("config.json")`. This method should read the `config_file` and return a `CarPark` object. Here is a sample implementation:
 
    ```python
@@ -1055,25 +1058,26 @@ We are going to do the latter:
       return cls(config["location"], config["capacity"], log_file=config["log_file"])
    ```
 
-   Notice that we use the `@classmethod` decorator. A class method is a method that operates on an instance of a class, as opposed to an instance of an object of that class (notice it uses `cls` instead of `self`, though that is a convention). In the past, we've used a `staticmethod` and while it is possible to implement this pattern, it would not support inheritance as well as this implementation.
+   Notice that we use the `@classmethod` decorator. A class method is a method that operates on an instance of a class, as opposed to an instance of an object of that class (notice it uses `cls` instead of `self`, though that is a convention). In the past, we've used a `staticmethod` and while it is possible to implement this pattern, it would not support inheritance as well as this implementation. ✅
 
-5. If you have created the unit tests, run them in PyCharm. Confirm that they now pass.
+5. If you have created the unit tests, run them in PyCharm. Confirm that they now pass. ✅
 
 **Additional evidencing:**
-After you have merged your branch to main, push to your remote with the s10 tag. Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:
+After you have merged your branch to main, push to your remote with the s10 tag. Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods: ✅
 
 ```markdown
 ![Added methods to the car park class](screenshots/methods-to-car-park.png)
 ```
+![Added methods to the car park class](screenshots/methods-to-car-park.png)
 
-### 2.14. Final step: build a car park
+### 2.14. Final step: build a car park ✅
 
 In the final step, you will create a `main.py` file that 'drives' a car park. This file will create a car park, add sensors and displays, and simulate cars entering and exiting the car park. You will then run the file to see the car park in action.
 In your final submission, you must include any files you created or modified. The submission must include the `main.py` file, the `config.json` file, and the `log.txt` file.
 
 #### 2.14.1. Create a main.py file
 
-1. If you haven't already, create a new file in the `src/` directory called `main.py`.
+1. If you haven't already, create a new file in the `src/` directory called `main.py`. 
 2. Add the following import statements to the top of the file:
 
    ```python
@@ -1082,7 +1086,7 @@ In your final submission, you must include any files you created or modified. Th
    from display import Display
    ```
 
-3. Now complete all the TODO steps outlined below:
+3. Now complete all the TODO steps outlined below: ✅
 
    ```python
    # TODO: create a car park object with the location moondalup, capacity 100, and log_file "moondalup.txt"
@@ -1107,6 +1111,7 @@ In your final submission, you must include any files you created or modified. Th
    ```markdown
    ![Main.py output](screenshots/main-py.png)
    ```
+![Main.py output](screenshots/main-py.png)
 
 > Required for evidencing competency:
 
