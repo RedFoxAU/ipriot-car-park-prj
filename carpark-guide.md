@@ -1117,16 +1117,16 @@ In your final submission, you must include any files you created or modified. Th
 
 2. Push the changes to the remote repository and create a PR (recommended you use the PR template in NorthMetro Software's repository). ✅
 
-3. Merge the PR on GitHub.
+3. Merge the PR on GitHub. ✅
 
-4. Pull the changes to your local main branch:
+4. Pull the changes to your local main branch: ✅
 
    ```bash
    git switch main
    git pull origin main
    ```
 
-5. Add an annotated tag to the commit with `v1` so your lecturer can find it:
+5. Add an annotated tag to the commit with `v1` so your lecturer can find it: ✅
 
    ```bash
    git tag -a "v1" -m "Final submission"
@@ -1138,11 +1138,11 @@ In your final submission, you must include any files you created or modified. Th
    git push --tags
    ```
 
-7. Release your code on GitHub. You can do this by going to the releases section and selecting "Create a new release":
+7. Release your code on GitHub. You can do this by going to the releases section and selecting "Create a new release": ✅
    1. Give the release a title (for example, "Car Park Prototype") and include a brief description
    2. Select "Publish release"
 
-8. Congratulations! You have completed the project. You can now submit the assignment via Blackboard. Take the time to reflect on your work and write any notes and observations down.
+8. Congratulations! You have completed the project. You can now submit the assignment via Blackboard. Take the time to reflect on your work and write any notes and observations down. ✅
 
 --------
 
