@@ -46,11 +46,5 @@ def main():
 
     # print(car_park)
 
-    # # Simulate car entry
-    # car_park.car_entered("ABC123")
-
-    # # Simulate car exit
-    # car_park.car_exited("ABC123")
-
 if __name__ == "__main__":
     main()

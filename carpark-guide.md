@@ -25,7 +25,7 @@ Notes on using this guide:
 
 1. Create a new repository on GitHub by selecting **Use this template** under the [NMS Org Template](https://github.com/NM-TAFE/ipriot-nms-org-template/tree/main) ✅
 
-> Recommended repo name: `ipriot-car-park-prj` 
+> Recommended repo name: `ipriot-car-park-prj`
 
 2. Clone the repository to your local machine. ✅
 3. Update the `README.md` file with a brief project description. 🚧
@@ -87,12 +87,12 @@ git push -u origin feature/mvp
 
 ### 2.3. Identify classes, methods, and attributes ✅
 
-After reading the task requirements, you should be able to identify the classes, methods, and attributes required for the car park system. Complete the following table with the classes, methods, and attributes you must implement. 
+After reading the task requirements, you should be able to identify the classes, methods, and attributes required for the car park system. Complete the following table with the classes, methods, and attributes you must implement.
 
 | Class Name | Attributes                                              | Methods                                                          |
 |------------|---------------------------------------------------------|------------------------------------------------------------------|
-| CarPark    | plates, location, capacity, displays, sensors, log_file | add_car(plate), remove_car(plate), update_displays(), available_bays, write_config()              |
-| Sensor     | id, is_active, car_park                             | detect_vehicle(), _scan_plate(), update_car_park(plate)          |
+| CarPark    | plates, location, capacity, displays, sensors, log_file | add_car(), remove_car(), update_displays(), available_bays, write_config()              |
+| Sensor     | id, is_active, car_park                             | detect_vehicle(), _scan_plate(), update_car_park()          |
 | Display    | id, message, is_on              | update_availability(), update_message(), update_temperature()   |
 
 
@@ -140,7 +140,7 @@ Include a screenshot of your GitHub repository `src/` directory **after** you ha
 4. Notice that plates and displays are lists (and we usually just use plurals to indicate this). The `displays` attribute holds references to instances of displays. The `plates` attribute holds references to license plates represented as strings (built-in/primitive types). Specifying these at initialization is optional, but we don't want to use an empty list as the default. For example, `self.sensors = []`. Lists are **mutable**, and we must never set mutable defaults for parameters. Thus we make the defaults `None`.
 5. Add a `__str__` method to the `CarPark` class. When you print a `CarPark` object, this method will be called. The method should return a string containing the car park's location and capacity. For example, `"Car park at 123 Example Street, with 100 bays."`.
 6. Your car park class should now look similar to this: ✅
- 
+
    ```python
    class CarPark:
       def __init__(self, location, capacity, plates=None, displays=None):
@@ -352,7 +352,7 @@ Now, we can add the code to add the `component` to the appropriate list. Add the
    # ... inside the register method
    if isinstance(component, Sensor):
       self.sensors.append(component)
-   # TODO: (optional) add an elif to check if the component is a Display - MUST 
+   # TODO: (optional) add an elif to check if the component is a Display - MUST
    ```
 
 **Additional evidencing:**
@@ -418,7 +418,7 @@ Let's add `available_bays` as a property now: ✅
 
 Notice that we did **not** use a verb in a property name. This is because, again, properties are accessed like attributes. For example, `car_park.available_bays` instead of `car_park.get_available_bays()`.
 
-A bonus is that if someone accidentally tries to set the value to this property, they will get an error. This is because we have not defined a property setter, which is good in this case. 
+A bonus is that if someone accidentally tries to set the value to this property, they will get an error. This is because we have not defined a property setter, which is good in this case.
 
 Without a property, python would not raise an error if someone "outside" the class created (or clobbered) an `available_bays` attribute by just assigning a value to it at runtime!
 
@@ -482,17 +482,17 @@ Answer the following questions: ✅
 > 1. **Which class is responsible for each of the following pieces of information (and why)?**
 >    - *The number of available bays*
 >      `CarPark - this class manages the total capacity and tracks licences plates that come in, and takes them off as they leave. this allows for available_bays to be accurate`
->    
+>
 >    - *The current temperature*
 >      `Sensor. Sensor senses things like tempreature, so it can be displayed in display or sent to other components.`
->      
+>
 >    - *The time*
 >      `Display. Display is showing the time and providing this value if needed`
 >
 > 2. **What is the difference between an attribute and a property?**
 >    `Attribute is a variable stored in an object like self.plates and a property is an attribute that has @property such as available_bays. Properties 'hide' the logic keep the code cleaner`
 >
-> 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.** 
+> 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.**
 >    `Dictionary allows us to change, add, remove without changing the method.`
 
 #### 2.7.5. Add a detect vehicle method to the Sensor class
@@ -544,7 +544,7 @@ classDiagram
    def _scan_plate(self):
       return 'FAKE-' + format(random.randint(0, 999), "03d")
    ```
- 
+
 5. Create a `detect_vehicle` method **in the Sensor class**. The method includes the following steps: ✅
    - Call the `_scan_plate` method to get the plate. ✅
    - Call the `update_car_park` method with the plate. ✅
@@ -586,7 +586,7 @@ def _scan_plate(self):
    return random.choice(self.car_park.plates)
 ```
 
-**Additional evidencing:** 
+**Additional evidencing:**
 After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it: ✅ s7
 
    ```bash
@@ -738,7 +738,7 @@ if __name__ == "__main__":
    ```
    ![Unit tests](screenshots/unit-tests.png)
 
-   
+
 3. Commit your changes to the local repository. Tag the commit with `s6` so your lecturer can find it: ✅ s8
 4. Push the tag to the remote repository:
 
@@ -796,7 +796,7 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
    ```markdown
    ![Unit tests](screenshots/unit-tests-display.png)
    ```
-![Unit tests](screenshots/unit-tests-display-error.png)   
+![Unit tests](screenshots/unit-tests-display-error.png)
 ![Unit tests](screenshots/unit-tests-display.png)
 
 2. Commit your changes to the local repository. Tag the commit with `s7` so your lecturer can find it. ✅ s9
@@ -834,7 +834,7 @@ Commit your original test cases for the sensor class to the local repository. Ta
 
 You have been asked to implement the following additional functionality:
 
-- Log cars entering and leaving in a file called `log.txt`. 
+- Log cars entering and leaving in a file called `log.txt`.
 - Store the configuration of a car park in a file called `config.json`.
 
 You decide to use TDD to implement this functionality. You start by writing a unit test for each requirement. You then implement the functionality to make the unit tests pass. Because you've already developed and tested much of the core functionality, you also decide to create a branch for this work.
@@ -1045,7 +1045,7 @@ We are going to do the latter:
    ```
 
    Because JSON is dictionary-like (key-value pairs), we can use a dictionary to represent the configuration. We can then use the `json.dump` method to write the dictionary to a file. ✅
- 
+
 4. Implement a `from_config` method in the CarPark class. This method should accept a single parameter, `config_file`. This parameter should default to `Path("config.json")`. This method should read the `config_file` and return a `CarPark` object. Here is a sample implementation:
 
    ```python
@@ -1077,7 +1077,7 @@ In your final submission, you must include any files you created or modified. Th
 
 #### 2.14.1. Create a main.py file
 
-1. If you haven't already, create a new file in the `src/` directory called `main.py`. 
+1. If you haven't already, create a new file in the `src/` directory called `main.py`.
 2. Add the following import statements to the top of the file:
 
    ```python

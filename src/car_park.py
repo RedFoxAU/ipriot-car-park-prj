@@ -23,11 +23,11 @@ class CarPark:
     def __str__(self):
         return f"Car park at {self.location}, with {self.capacity} bays."
 
-    def car_entered(self, license_plate):
-        print(f"Car entered with plate: {license_plate}")
+    def car_entered(self, plate):
+        print(f"Car entered with plate: {plate}")
 
-    def car_exited(self, license_plate):
-        print(f"Car exited with plate: {license_plate}")
+    def car_exited(self, plate):
+        print(f"Car exited with plate: {plate}")
 
     def register(self, component):
         if not isinstance(component, (Sensor, Display)):
@@ -93,7 +93,6 @@ class CarPark:
             config = json.load(f)
         return cls(config["location"], config["capacity"], log_file=config["log_file"])
 
-       #     f.write(f"{plate} {action} at {datetime.now():%Y-%m-%d %H:%M:%S}\n")
     def update(self, data):
         for key, value in data.items():
             print(f"{key}: {value}")

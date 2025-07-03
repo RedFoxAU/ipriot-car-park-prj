@@ -19,7 +19,6 @@ class Display:
         for key, value in data.items():
             print(f"{key}: {value}")
 
-
         # if self.is_on:
         #     print(f"Display {self.id}: {self.message}")
         # else:
