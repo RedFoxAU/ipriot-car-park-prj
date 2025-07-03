@@ -14,11 +14,11 @@ def main():
     car_park = CarPark.from_config("moondalup_config.json")
 
     # TODO: create an entry sensor object with id 1, is_active True, and car_park car_park
-    entry_sensor = EntrySensor(sensor_id=1, is_active=True, car_park=car_park)
+    entry_sensor = EntrySensor(id=1, is_active=True, car_park=car_park)
     print(f"DEBUG: {entry_sensor}")
 
     # TODO: create an exit sensor object with id 2, is_active True, and car_park car_park
-    exit_sensor = ExitSensor(sensor_id=2, is_active=True, car_park=car_park)
+    exit_sensor = ExitSensor(id=2, is_active=True, car_park=car_park)
     print(f"DEBUG: {exit_sensor}")
 
     # TODO: create a display object with id 1, message "Welcome to Moondalup", is_on True, and car_park car_park
@@ -41,7 +41,7 @@ def main():
     # car_park = CarPark(location="Moondalup Central", capacity=5, displays=[display1])
 
     # # Create sensor
-    # sensor1 = Sensor(sensor_id=101, bay_id=1)
+    # sensor1 = Sensor(id=101, bay_id=1)
     # #print(sensor1)
 
     # print(car_park)

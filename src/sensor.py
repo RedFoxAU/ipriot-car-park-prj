@@ -1,11 +1,11 @@
 from abc import ABC, abstractmethod
 import random
 class Sensor(ABC):
-    def __init__(self, car_park, sensor_id, is_active):
+    def __init__(self, car_park, id, is_active):
         self.car_park = car_park
-        self.id = sensor_id
+        self.id = id
         self.is_active = is_active
-        self.car_park.add_sensor(self)
+        self.car_park(self)
 
     @abstractmethod
     def update_car_park(self, plate):
@@ -29,4 +29,6 @@ class ExitSensor(Sensor):
       print(f"Outgoing 🚗 vehicle detected. Plate: {plate}")
 
     def _scan_plate(self):
-        return random.choice(self.car_park.plates)
+        if not self.car_park.plates:
+            raise ValueError("System Error - no plate to scan")
+        return random.choice(self.car_park.plates) # Generates random plate

@@ -16,7 +16,6 @@ class Display:
     def update(self, data):
         if "message" in data:
             self.update_message(data["message"])
-
         for key, value in data.items():
             print(f"{key}: {value}")
 

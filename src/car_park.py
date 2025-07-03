@@ -32,7 +32,6 @@ class CarPark:
     def register(self, component):
         if not isinstance(component, (Sensor, Display)):
             raise TypeError("Object must be a Sensor or Display")
-
         if isinstance(component, Sensor):
             self.sensors.append(component)
         elif isinstance(component, Display):
@@ -59,15 +58,11 @@ class CarPark:
         else:
             raise ValueError(f"Plate {plate} not found in car park.")
 
-
-
     def update_displays(self):
         data = {"available_bays": self.available_bays, "temperature": 25}
 
         for display in self.displays:
             display.update(data)
-
-
 
     @property
     def available_bays(self):
