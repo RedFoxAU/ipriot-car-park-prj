@@ -34,7 +34,7 @@ class EntrySensor(Sensor):
         print(f"Incoming 🚘 vehicle detected. Plate: {plate}")
 
 class ExitSensor(Sensor):
-    def detect_car_exit(self, plate)
+    def detect_car_exit(self, plate):
         self.car_park.remove_car(plate)
         self.occupied = False
         print(f"Outgoing 🚗 vehicle detected. Plate: {plate}")

@@ -1,5 +1,5 @@
 class Display:
-    def __init__(self, id, message="", is_on=False):
+    def __init__(self, display_id, message="", is_on=False):
         self.id = id
         self.message = message
         self.is_on = is_on
