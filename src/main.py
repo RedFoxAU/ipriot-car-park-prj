@@ -4,53 +4,31 @@ from display import Display
 from pathlib import Path
 
 def main():
-    # TODO: create a car park object with the location moondalup, capacity 100, and log_file "moondalup.txt"
+    """
+    Initializes the Car Park system, simulates vehicle entry and exit,
+    and displays status messages.
+    """
     car_park = CarPark(location="Moondalup", capacity=100, log_file=Path("moondalup.txt"))
-
-    # TODO: Write the car park configuration to a file called "moondalup_config.json"
     car_park.write_config("moondalup_config.json")
-
-    # TODO: Reinitialize the car park object from the "moondalup_config.json" file
     car_park = CarPark.from_config("moondalup_config.json")
 
-    # TODO: create an entry sensor object with id 1, is_active True, and car_park car_park
     entry_sensor = EntrySensor(id=1, is_active=True, car_park=car_park)
-    #print(f"DEBUG: {entry_sensor}")
-
-    # TODO: create an exit sensor object with id 2, is_active True, and car_park car_park
     exit_sensor = ExitSensor(id=2, is_active=True, car_park=car_park)
-    #print(f"DEBUG: {exit_sensor}")
-
-    # TODO: create a display object with id 1, message "Welcome to Moondalup", is_on True, and car_park car_park
-    # Create display
-    display1 = Display(id=1, message="Welcome to Moondalup -1SPACE-LEFT Car Parks!", is_on=True)
+    display1 = Display(id=1, message="Welcome to Moondalup - 1SPACE-LEFT Car Parks!", is_on=True)
     print(f"{display1}")
 
-    # TODO: drive 10 cars into the car park (must be triggered via the sensor - NOT by calling car_park.add_car directly)
-    for i in range(10):  # Ten Cars Drive in
-       # plate = (f"FAKE-{i}")
+    # Simulation of Ten Cars entering Car Park.
+    for i in range(10):
         entry_sensor.detect_vehicle()
+        print("Available bays:", car_park.available_bays)
 
-    # TODO: drive 2 cars out of the car park (must be triggered via the sensor - NOT by calling car_park.remove_car directly)
-    exit_sensor.detect_vehicle()  #("FAKE-1")
-    exit_sensor.detect_vehicle()  # "FAKE-2")
-    print("Cars remaining after two exits:", car_park.plates)
-
-
-    # # Create car park
-    # car_park = CarPark(location="Moondalup Central", capacity=5, displays=[display1])
-
-    # # Create sensor
-    # sensor1 = Sensor(id=101, bay_id=1)
-    # #print(sensor1)
-
-    # print(car_park)
-
-    # # Simulate car entry
-    # car_park.car_entered("ABC123")
-
-    # # Simulate car exit
-    # car_park.car_exited("ABC123")
+    # Simulation of Two cars exiting Car Park.
+    exit_sensor.detect_vehicle()  # One Car Exits
+    print("Available bays:", car_park.available_bays)
+    print("Cars remaining in Car Park", car_park.plates)
+    exit_sensor.detect_vehicle()  # Second Car Exits
+    print("Available bays:", car_park.available_bays)
+    print("Cars remaining in Car Park", car_park.plates)
 
 if __name__ == "__main__":
     main()

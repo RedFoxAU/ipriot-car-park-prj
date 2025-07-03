@@ -30,4 +30,4 @@ class ExitSensor(Sensor):
     def _scan_plate(self):
         if not self.car_park.plates:
             raise ValueError("System Error - no plate to scan")
-        return random.choice(self.car_park.plates) # Generates random plate
+        return random.choice(self.car_park.plates)  # Generates random plate
