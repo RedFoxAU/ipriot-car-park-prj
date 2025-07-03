@@ -4,7 +4,6 @@ from pathlib import Path
 
 class TestCarPark(unittest.TestCase):
     def setUp(self):
-       # self.log_path = Path("new_log.txt")
         self.log_path = Path("log.txt")
         self.car_park = CarPark("123 Example Street", 100, log_file=self.log_path)
 
@@ -18,7 +17,6 @@ class TestCarPark(unittest.TestCase):
         self.assertEqual(self.car_park.plates, [])
         self.assertEqual(self.car_park.displays, [])
         self.assertEqual(self.car_park.available_bays, 100)
-
       #  self.assertEqual(self.car_park.log_file, Path("log.txt"))
         self.assertEqual(self.car_park.log_file, self.log_path)
 

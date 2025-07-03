@@ -15,26 +15,26 @@ def main():
 
     # TODO: create an entry sensor object with id 1, is_active True, and car_park car_park
     entry_sensor = EntrySensor(id=1, is_active=True, car_park=car_park)
-    print(f"DEBUG: {entry_sensor}")
+    #print(f"DEBUG: {entry_sensor}")
 
     # TODO: create an exit sensor object with id 2, is_active True, and car_park car_park
     exit_sensor = ExitSensor(id=2, is_active=True, car_park=car_park)
-    print(f"DEBUG: {exit_sensor}")
+    #print(f"DEBUG: {exit_sensor}")
 
     # TODO: create a display object with id 1, message "Welcome to Moondalup", is_on True, and car_park car_park
     # Create display
-    display1 = Display(id=1, message="Welcome to Moondalup Car Park", is_on=True)
-    print(f"DEBUG: {display1}")
+    display1 = Display(id=1, message="Welcome to Moondalup -1SPACE-LEFT Car Parks!", is_on=True)
+    print(f"{display1}")
 
     # TODO: drive 10 cars into the car park (must be triggered via the sensor - NOT by calling car_park.add_car directly)
-    for i in range(10):
-        plate = (f"FAKE-{i}")
-        entry_sensor.detect_vehicle(plate)
+    for i in range(10):  # Ten Cars Drive in
+       # plate = (f"FAKE-{i}")
+        entry_sensor.detect_vehicle()
 
     # TODO: drive 2 cars out of the car park (must be triggered via the sensor - NOT by calling car_park.remove_car directly)
-    exit_sensor.detect_vehicle("FAKE-1")
-    exit_sensor.detect_vehicle("FAKE-2")
-
+    exit_sensor.detect_vehicle()  #("FAKE-1")
+    exit_sensor.detect_vehicle()  # "FAKE-2")
+    print("Cars remaining after two exits:", car_park.plates)
 
 
     # # Create car park

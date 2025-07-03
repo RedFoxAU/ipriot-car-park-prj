@@ -20,9 +20,6 @@ class Display:
             print(f"{key}: {value}")
 
 
-
-
-
         # if self.is_on:
         #     print(f"Display {self.id}: {self.message}")
         # else:

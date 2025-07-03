@@ -5,7 +5,6 @@ class Sensor(ABC):
         self.car_park = car_park
         self.id = id
         self.is_active = is_active
-        self.car_park(self)
 
     @abstractmethod
     def update_car_park(self, plate):

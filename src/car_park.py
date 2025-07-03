@@ -9,8 +9,8 @@ class CarPark:
         self.location = location
         self.capacity = capacity
         self.plates = plates or []
-        self.displays = displays or []
         self.sensors = sensors or []
+        self.displays = displays or []
         self.log_file = log_file if isinstance(log_file, Path) else Path(log_file)
         # create the file if it doesn't exist:
         self.log_file.touch(exist_ok=True)
@@ -60,7 +60,6 @@ class CarPark:
 
     def update_displays(self):
         data = {"available_bays": self.available_bays, "temperature": 25}
-
         for display in self.displays:
             display.update(data)
 
