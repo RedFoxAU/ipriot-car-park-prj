@@ -18,11 +18,3 @@ class Display:
             self.update_message(data["message"])
         for key, value in data.items():
             print(f"{key}: {value}")
-
-        # if self.is_on:
-        #     print(f"Display {self.id}: {self.message}")
-        # else:
-        #     print(f"Display {self.id} is off.")
-
-    # def update(self):
-    #     self.message = f"Display {self.id}: {len(self.car_park.plates)} cars in the car park."

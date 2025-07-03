@@ -12,13 +12,7 @@ class CarPark:
         self.sensors = sensors or []
         self.displays = displays or []
         self.log_file = log_file if isinstance(log_file, Path) else Path(log_file)
-        # create the file if it doesn't exist:
-        self.log_file.touch(exist_ok=True)
-
-        # if not isinstance(capacity, int) or capacity <= 0:
-        #     raise ValueError("Capacity must be a positive integer")
-        # if not isinstance(location, str):
-        #     raise TypeError("Location must be a string")
+        self.log_file.touch(exist_ok=True)  # Create the log file if it doesn't exist
 
     def __str__(self):
         return f"Car park at {self.location}, with {self.capacity} bays."
@@ -37,11 +31,6 @@ class CarPark:
         elif isinstance(component, Display):
             self.displays.append(component)
 
-    # def add_car(self, plate):
-        # if plate not in self.plates:
-        #     self.plates.append(plate)
-        #     self.update_displays()
-        #     self._log_car_activity(plate, "entered")
     def add_car(self, plate):
         if plate not in self.plates:
             self.plates.append(plate)
@@ -70,12 +59,6 @@ class CarPark:
     def _log_car_activity(self, plate, action):
         with self.log_file.open("a") as f:
            f.write(f"{plate} {action} at {datetime.now():%Y-%m-%d %H:%M:%S}\n")
-
-    # def write_config(self):
-    #     with open("config.json", "w") as f: # TODO: use self.config_file; use Path; add optional parm to __init__
-    #         json.dump({"location": self.location,
-    #                     "capacity": self.capacity,
-    #                     "log_file": str(self.log_file)}, f)
 
     def write_config(self, config_file=Path("config.json")):
         config_file = config_file if isinstance(config_file, Path) else Path(config_file)
